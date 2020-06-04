@@ -16,7 +16,7 @@ const delay = props => {
 
 const Style = styled.div`
   background: ${props => props.background || "#999"};
-  background: linear-gradient(45deg, #7bc6e2 0%, #fdb6c6 50%, #ffbe74 100%);
+  background: linear-gradient(45deg, #2B7A78 0%, #17252A 74%);
   width: ${props => props.width || "100%"};
   height: ${props => props.height || "400px"};
   position: fixed;
@@ -47,7 +47,7 @@ const Style = styled.div`
       content: "";
       left: 0;
       top: 0;
-      background: linear-gradient(45deg, #7bc6e2 0%, #fdb6c6 50%, #ffbe74 100%);
+      background: linear-gradient(45deg, #2B7A78 0%, #17252A 74%);
       opacity: 1;
       z-index: 999;
       mix-blend-mode: overlay;
@@ -59,8 +59,8 @@ const Style = styled.div`
       content: "";
       left: 0;
       top: 0;
-      background: linear-gradient(45deg, #7bc6e2 0%, #fdb6c6 50%, #ffbe74 100%);
-      opacity: 0.6;
+      background: linear-gradient(45deg, #2B7A78 0%, #17252A 74%);
+      opacity: 0.9;
       z-index: 9999;
       mix-blend-mode: multiply;
     }
@@ -76,7 +76,7 @@ const Polygon = props => {
           }
         }
       }
-      backgroundImage: file(absolutePath: { regex: "/poly-black.png/" }) {
+      backgroundImage: file(absolutePath: { regex: "/math_on_whiteboard.jpg/" }) {
         childImageSharp {
           fluid(maxWidth: 2000) {
             ...GatsbyImageSharpFluid

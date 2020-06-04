@@ -7,9 +7,9 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import toni from "../../images/tony.jpg"
+import icon from "../../images/moai_icon_grayed.png"
 
 function SEO({
   description,
@@ -57,7 +57,9 @@ function SEO({
         },
         {
           name: `google-site-verification`,
-          content: `kaAYWJ90RU9FB4430g_rUGp9L5rxhFvQc28yPan2zU8`,
+          content: 
+          //TODO
+          `kaAYWJ90RU9FB4430g_rUGp9L5rxhFvQc28yPan2zU8`,
         },
         {
           name: `description`,
@@ -126,7 +128,7 @@ SEO.defaultProps = {
   meta: [],
   keywords: [],
   description: ``,
-  image: toni,
+  image: icon,
   type: `article`,
   noindex: false,
 }
@@ -142,4 +144,4 @@ SEO.propTypes = {
   noindex: PropTypes.bool,
 }
 
-export default SEO
+export default SEO;

@@ -6,7 +6,7 @@ const Wrapper = styled.header`
   align-items: center;
   position: fixed;
   width: 100%;
-  color: #ffffff;
+  color: #feffff;
   z-index: 99999;
   height: 70px;
   padding-top: 5px;
@@ -48,7 +48,7 @@ const Wrapper = styled.header`
       transition: 0.3s ease-in-out;
       width: 100%;
       height: 5px;
-      background: linear-gradient(45deg, #7bc6e2 0%, #fdb6c6 50%, #ffbe74 100%);
+      background: linear-gradient(45deg, #3AAFA9 0%, #2B7A78 74%);
       position: absolute;
       left: 0;
       top: 0;

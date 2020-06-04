@@ -38,7 +38,7 @@ module.exports = {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         // #TODO
-        siteUrl: `https://diff001a.netlify.com/`,
+        siteUrl: `http://localhost:8000/`,
       },
     },
     {
@@ -105,12 +105,19 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-sharp`,
+      options: {
+        // The option defaults to true
+        checkSupportedExtensions: false,
+      },
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-147345327-1",
+        //TODO
+        trackingId: "",
       },
     },
     {
@@ -166,7 +173,7 @@ module.exports = {
             }
           `,
             output: "/rss.xml",
-            title: "Ma-r-co's RSS Feed",
+            title: "Ma-r-co RSS Feed",
           },
         ],
       },
@@ -174,14 +181,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Ma-r-co's note`,
-        short_name: `Ma-r-co's note`,
+        name: `Ma-r-co note`,
+        short_name: `Ma-r-co note`,
         start_url: `/`,
-        // #TODO
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#3AAFA9`,
         display: `minimal-ui`,
-        // icon: `${__dirname}/src/images/tony.jpg` #TODO,
+        icon: `${__dirname}/src/images/moai_icon_grayed.png`,
       },
     },
     `gatsby-plugin-offline`,

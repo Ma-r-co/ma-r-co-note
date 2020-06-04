@@ -1,11 +1,15 @@
 :root {
-  --purple: #bd93f9;
-  --pink: #ff79c6;
-  --green: #50fa7b;
-  --blue: #8be9fd;
-  --yellow: #f1fa8c;
-  --orange: #ffb86c;
+  --purple: #C378B6;
+  --white: #FEFFFF;
+  --green: #1EAE95;
+  --darkgreen: #588F4C;
+  --lightgreen: #A8C79E;
+  --blue: #398AC6;
+  --lightblue: #85D7FD;
+  --yellow: #D7D7A0;
+  --orange: #CE856C;
   --color: #666;
+  --black: #1C1C1C;
 }
 
 code {
@@ -35,8 +39,8 @@ pre code {
 }
 
 pre[class*="language-"], pre[class*="language-"]>code {
-  color: #eee;
-  background: #373949;
+  color: var(--green);
+  background: var(--black);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: .95em;
   text-align: left;
@@ -223,16 +227,16 @@ pre[data-line] {
   content: attr(data-prompt);
 }
 
-.keyword {
-  color: var(--pink);
+/* .keyword {
+  color: var(--blue);
 }
 
 .function-variable, .function {
-  color: var(--green);
+  color: var(--yellow);
 }
 
 .punctuation, .operator {
-  color: var(--pink);
+  color: var(--white);
 }
 
 .constant {
@@ -240,7 +244,7 @@ pre[data-line] {
 }
 
 .string {
-  color: var(--yellow);
+  color: var(--orange);
 }
 
 .selector {
@@ -248,9 +252,82 @@ pre[data-line] {
 }
 
 .property {
-  color: var(--blue);
+  color: var(--lightblue);
 }
 
 .comment {
-  color: #aaa;
+  color: var(--darkgreen);
+} */
+
+.comment,
+.prolog,
+.doctype,
+.cdata {
+	color: var(--darkgreen);
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.function-variable,
+.attr-value,
+.attr-name,
+.regex {
+  color: var(--lightblue);
+}
+
+.important,
+.variable,
+.property,
+.constant,
+.symbol,
+.deleted {
+  color: var(--green);
+}
+
+.number {
+  color: var(--lightgreen);
+}
+
+.selector,
+.string,
+.char,
+.builtin,
+.inserted {
+  color: var(--orange);
+}
+
+.punctuation,
+.operator,
+.entity,
+.url,
+.language-css .string,
+.style .string {
+  color: var(--white);
+}
+
+.atrule,
+.boolean,
+.tag,
+.keyword {
+  color: var(--blue);
+}
+
+.function,
+.class-name {
+	color: var(--yellow);
+}
+
+
+.important,
+.bold {
+	font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
+
+.entity {
+	cursor: help;
 }
