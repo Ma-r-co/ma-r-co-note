@@ -227,38 +227,6 @@ pre[data-line] {
   content: attr(data-prompt);
 }
 
-/* .keyword {
-  color: var(--blue);
-}
-
-.function-variable, .function {
-  color: var(--yellow);
-}
-
-.punctuation, .operator {
-  color: var(--white);
-}
-
-.constant {
-  color: var(--green);
-}
-
-.string {
-  color: var(--orange);
-}
-
-.selector {
-  color: var(--purple);
-}
-
-.property {
-  color: var(--lightblue);
-}
-
-.comment {
-  color: var(--darkgreen);
-} */
-
 .comment,
 .prolog,
 .doctype,
