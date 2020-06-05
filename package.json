@@ -1,9 +1,9 @@
 {
-  "name": "diff001-blog",
+  "name": "ma-r-co-note",
   "private": true,
   "description": "My blog powered by gatsby",
   "version": "0.1.0",
-  "author": "#TODO",
+  "author": "Ma-r-co",
   "dependencies": {
     "axios": "^0.19.2",
     "gatsby": "^2.23.0",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "prettier": "^2.0.5"
   },
-  "homepage": "#TODO",
+  "homepage": "https://marco-note.net",
   "keywords": [
     "gatsby"
   ],
@@ -51,7 +51,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "#TODO"
+    "url": "https://github.com/Ma-r-co/ma-r-co-note.git"
   },
   "scripts": {
     "build": "gatsby build",

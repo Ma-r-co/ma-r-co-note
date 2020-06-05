@@ -58,8 +58,7 @@ function SEO({
         {
           name: `google-site-verification`,
           content: 
-          //TODO
-          `kaAYWJ90RU9FB4430g_rUGp9L5rxhFvQc28yPan2zU8`,
+          `VlqJHuoT2MVEQTHfsITxNCg6bOLvmXMQnCxegBEQ3rk`,
         },
         {
           name: `description`,
