@@ -149,9 +149,9 @@ const GlobalStyle = createGlobalStyle`
       outline: none;
     }
   }
-  ::selection {
-    background: rgba(255, 250, 118, 0.35);
-  }
+  // ::selection {
+  //   background: rgba(180, 216, 253, 0.35);
+  // }
 
   /* ===============================================
   # smart phone

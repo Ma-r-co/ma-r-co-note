@@ -9,7 +9,7 @@
   --yellow: #D7D7A0;
   --orange: #CE856C;
   --color: #666;
-  --black: #1C1C1C;
+  --black: #374549;
 }
 
 code {
@@ -226,38 +226,6 @@ pre[data-line] {
 .command-line-prompt>span[data-prompt]:before {
   content: attr(data-prompt);
 }
-
-/* .keyword {
-  color: var(--blue);
-}
-
-.function-variable, .function {
-  color: var(--yellow);
-}
-
-.punctuation, .operator {
-  color: var(--white);
-}
-
-.constant {
-  color: var(--green);
-}
-
-.string {
-  color: var(--orange);
-}
-
-.selector {
-  color: var(--purple);
-}
-
-.property {
-  color: var(--lightblue);
-}
-
-.comment {
-  color: var(--darkgreen);
-} */
 
 .comment,
 .prolog,

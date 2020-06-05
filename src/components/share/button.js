@@ -34,28 +34,28 @@ const Wrapper = styled.div`
     }
   }
   &.twitter {
-    background: linear-gradient(0deg, #1da1f2, ${rgba("#1DA1F2", 0.7)});
-    text-shadow: 0 1px 1px #1b98e4;
-    box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
-      0 2px 10px -1px ${rgba("#1DA1F2", 0.6)};
+    background: linear-gradient(0deg, #3AAFA9, ${rgba("#3AAFA9", 0.7)});
+    text-shadow: 0 1px 1px #3AAFA9;
+    // box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
+    //   0 2px 10px -1px ${rgba("#3AAFA9", 0.6)};
   }
   &.facebook {
-    background: linear-gradient(0deg, #3c5a99, ${rgba("#3C5A99", 0.8)});
-    text-shadow: 0 1px 1px #334d83;
-    box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
-      0 2px 10px -1px ${rgba("#3C5A99", 0.6)};
+    background: linear-gradient(0deg, #3AAFA9, ${rgba("#3AAFA9", 0.8)});
+    text-shadow: 0 1px 1px #3AAFA9;
+    // box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
+    //   0 2px 10px -1px ${rgba("#3AAFA9", 0.6)};
   }
   &.hatena {
-    background: linear-gradient(0deg, #00a4dd, ${rgba("#00A4DD", 0.8)});
-    text-shadow: 0 1px 1px #018cbc;
-    box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
-      0 2px 10px -1px ${rgba("#00A4DD", 0.6)};
+    background: linear-gradient(0deg, #3AAFA9, ${rgba("#3AAFA9", 0.8)});
+    text-shadow: 0 1px 1px #3AAFA9;
+    // box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
+    //   0 2px 10px -1px ${rgba("#3AAFA9", 0.6)};
   }
   &.pocket {
-    background: linear-gradient(0deg, #ee4056, ${rgba("#ee4056", 0.7)});
-    text-shadow: 0 1px 1px #d13b4e;
-    box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
-      0 2px 10px -1px ${rgba("#ee4056", 0.6)};
+    background: linear-gradient(0deg, #3AAFA9, ${rgba("#3AAFA9", 0.7)});
+    text-shadow: 0 1px 1px #3AAFA9;
+    // box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
+    //   0 2px 10px -1px ${rgba("#3AAFA9", 0.6)};
   }
   &:hover {
     opacity: 1;

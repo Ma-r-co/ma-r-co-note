@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-import { FaGithub, FaRss, FaSitemap } from "react-icons/fa"
+import { FaGithub, FaTwitter, FaRss, FaSitemap } from "react-icons/fa"
 import { useSiteMetadata } from "../queries"
 import Img from "gatsby-image"
 
@@ -83,6 +83,17 @@ const Footer = () => {
       <div className="inner">
         <address>© {author}. All rights reserved.</address>
         <div className="right">
+          {social.twitter !== ""
+            ? (
+              <a
+                href={`https://twitter.com/${social.twitter}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter />
+              </a>
+              )
+            : ("")}
           {social.github !== "" ? (
             <a
               href={`https://github.com/${social.github}`}
