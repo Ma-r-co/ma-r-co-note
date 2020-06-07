@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Ma-r-co note`,
     author: `Ma-r-co`,
-    description: `A blog powered by Gatsby`,
+    description: `競技プログラミング, Python, React, Fintechについての技術ブログです.`,
     siteUrl: `https://marco-note.net`,
     social: {
       twitter: `marco_marticus`,

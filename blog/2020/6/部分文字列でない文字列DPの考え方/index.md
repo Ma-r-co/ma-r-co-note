@@ -1,7 +1,7 @@
 ---
 title: 「部分文字列でない文字列」の考え方
 date: 2020-06-06T00:00:00.000Z
-description: 部分文字列でない文字列を問う問題を解く上で基本となる考え方「文字列走査グラフ」を解説する。ARC081-E Don’t Be a SubsequenceをPythonで解く。部分文字列DP。
+description: 部分文字列でない文字列を問う問題を解く上で基本となる考え方「文字列走査グラフ」を解説する. ARC081-E Don’t Be a SubsequenceをPythonで解く. 部分文字列DP. 
 slug: how-to-solve-non-subsequence-problem
 tags: 
   - Python

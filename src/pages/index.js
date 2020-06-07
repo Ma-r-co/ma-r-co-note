@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Blog from "../components/blog"
 import Polygon from "../components/polygon"
-import Image from "gatsby-image"
+// import Image from "gatsby-image"
 
 /* ===============================================
 #  page component

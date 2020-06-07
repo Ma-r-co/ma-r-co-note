@@ -1,7 +1,7 @@
 ---
-title: ABC169 参加記録/Python解答
+title: AtCoder Beginner Contest 169 参加記録, Python解答
 date: 2020-06-05T00:00:00.000Z
-description: ABC169に参加しました。結果は5完846位でパフォーマンス1643。
+description: AtCoder Beginner Contest 169(ABC169)に参加しました. 結果は5完846位でパフォーマンス1643. Pythonによる解答を載せます.
 slug: abc-169-work-log
 tags: 
   - Python
