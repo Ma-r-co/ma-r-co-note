@@ -1,7 +1,7 @@
 ---
-title: -Python- 30歳を越えて始めたAtCoder、半年で水色になりました
+title: -Python- 30代になって始めたAtCoder、半年で水色になりました
 date: 2020-06-07T00:00:00.000Z
-description: 30歳越えのおっさんながらAtCoderを始めて、半年を経てようやく水色になった. 使用言語はPython. 僕が実践した練習法を紹介します.
+description: 30代になってからAtCoderを始めて、半年を経てようやく水色になった. 使用言語はPython. 僕が実践した練習法を紹介します.
 slug: what-to-do-to-break-1200
 tags: 
   - Python

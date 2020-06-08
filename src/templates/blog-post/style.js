@@ -212,6 +212,30 @@ const Wrapper = styled.div`
       }
     }
     /* ===============================================
+    #  Quotation
+    =============================================== */
+    blockquote {
+      display: block;
+      background: var(--paleGray);
+      padding: .1px 0 .1px 1em;
+      margin-left: 30px;
+      color: #333333;
+      border-left: 8px solid var(--lightGray);
+      font-style: italic;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      line-height: 1em;
+    }
+    blockquote cite{
+      line-height: 1em;
+      display: block;
+      font-size:0.8rem;
+      color:#333333;
+      text-align:right;
+      font-style: italic;
+      padding: 1px;
+    }
+    /* ===============================================
     #  img
     =============================================== */
     .gatsby-resp-image-wrapper {
