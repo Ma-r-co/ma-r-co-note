@@ -1,7 +1,7 @@
 ---
 title: AtCoder Beginner Contest 169 参加記録, Python解答
 date: 2020-06-05T00:00:00.000Z
-description: AtCoder Beginner Contest 169(ABC169)に参加しました. 結果は5完846位でパフォーマンス1643. Pythonによる解答を載せます.
+description: AtCoder Beginner Contest 169(ABC169)に参加. 結果は5完846位でパフォーマンス1643. Pythonによる解答を載せます.
 slug: abc-169-work-log
 tags: 
   - Python
@@ -52,7 +52,8 @@ print(cnt)
 Pythonなら「"精度"が効いてくる問題=`Decimal`」って脊髄反射してもいいくらいかと。  
 なお、`Decimal`型は計算精度を任意に変えられるが、デフォルトでは28桁で競プロでは意識して調整する必要がない十分な精度。
 
-> decimal モジュールでは計算精度をユーザが変更できます(デフォルトでは 28 桁です)。[Python 3.8.3 ドキュメント](https://docs.python.org/ja/3/library/decimal.html)
+> decimal モジュールでは計算精度をユーザが変更できます(デフォルトでは 28 桁です)。  
+> <cite>-- [Python 3.8.3 ドキュメント](https://docs.python.org/ja/3/library/decimal.html)</cite>
 
 ```python
 from decimal import Decimal
