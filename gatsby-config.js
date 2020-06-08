@@ -107,6 +107,17 @@ module.exports = {
               strict: `ignore`
             },
           },
+          {
+            resolve: "gatsby-remark-custom-blocks",
+            options: {
+              blocks: {
+                responsiveTable: {
+                  classes: "responsive-table",
+                  title: "optional",
+                },
+              },
+            },
+          },
         ],
       },
     },

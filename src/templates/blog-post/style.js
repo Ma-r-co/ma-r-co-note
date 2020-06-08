@@ -181,6 +181,35 @@ const Wrapper = styled.div`
           }
         }
       }
+      /* ===============================================
+      #  table
+      =============================================== */
+      table{
+        border-collapse:collapse;
+        margin:0 auto;
+        font-size: 0.9rem;
+      }
+      th{
+        color: var(--primary);
+      }
+      td{
+        border-bottom:1px dashed var(--lightGray);
+      }
+      // th,tr:last-child td{
+      th {
+        border-bottom:2px solid var(--primary);
+      }
+      td,th{
+        padding:10px;
+      }
+      .scrollable-table {
+        p {
+          text-align: center;
+          font-size: 0.9rem;
+          line-height: 1;
+          margin: 0
+        }
+      }
     }
     /* ===============================================
     #  img
@@ -271,6 +300,12 @@ const Wrapper = styled.div`
       h1 {
         font-size: 1.5rem;
       }
+    }
+    .scrollable-table {
+      overflow-x: auto;
+    }
+    .scrollable-table table {
+      min-width: 480px;
     }
   }
 `
