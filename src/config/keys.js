@@ -1,5 +1,9 @@
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./prod');
-} else {
-  module.exports = require('./dev');
+var siteRecaptchaKey = process.env.SITE_RECAPTCHA_KEY;
+if (typeof process.env.SITE_RECAPTCHA_KEY === 'undefined') {
+  const keys = require('./dev');
+  siteRecaptchaKey = keys.siteRecaptchaKey;
 }
+
+module.exports = {
+  siteRecaptchaKey
+};
