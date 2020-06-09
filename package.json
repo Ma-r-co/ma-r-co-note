@@ -37,6 +37,7 @@
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.0.0",
     "react-icons": "^3.10.0",
     "smooth-scroll": "^16.1.3",

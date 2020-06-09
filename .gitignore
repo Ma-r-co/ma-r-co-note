@@ -71,5 +71,8 @@ yarn-error.log
 # vscode setting
 .vscode/
 
-#draft
+# draft
 _draft/
+
+# Keys in dev env
+src/config/dev.js
