@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import { FaGithub, FaTwitter, FaRss, FaSitemap } from "react-icons/fa"
 import { useSiteMetadata } from "../queries"
@@ -12,18 +12,23 @@ const Wrapper = styled.footer`
   text-align: center;
   z-index: 9999999;
   padding: 20px 0;
-  display: flex;
   margin-top: auto;
   justify-content: center;
   background: var(--background);
   margin: 0;
-  .inner {
+  color: var(--primaryGray);
+  .upper-inner {
+    margin: auto;
     font-size: 0.9rem;
     display: flex;
     width: 100%;
     max-width: var(--width);
-    address {
-      font-weight: 400;
+    a {
+      text-decoration: none;
+      color: var(--primaryGray);
+    }
+    a:hover {
+      color: var(--text);
     }
     .right {
       margin-left: auto;
@@ -40,18 +45,21 @@ const Wrapper = styled.footer`
       }
     }
   }
+  .lower-inner {
+    font-size: 0.9rem;
+    width: 100%;
+    padding: 0 auto;
+  }
   @media screen and (max-width: 780px) {
-    .inner {
+    .upper-inner {
       padding: 0 10px;
+      padding-bottom: 10px;
       flex-direction: column-reverse;
-      address,
       .right {
         width: 100%;
         display: flex;
         justify-content: center;
-      }
-      .right {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
     }
   }
@@ -80,36 +88,36 @@ const Footer = () => {
   const { author, social, siteUrl } = useSiteMetadata()
   return (
     <Wrapper>
-      <div className="inner">
-        <address>© {author}. All rights reserved.</address>
+      <div className="upper-inner">
+        <Link to='/contact'>お問合せ</Link>
         <div className="right">
           {social.twitter !== ""
             ? (
               <a
-                href={`https://twitter.com/${social.twitter}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              href={`https://twitter.com/${social.twitter}`}
+              target="_blank"
+              rel="noopener noreferrer"
               >
                 <FaTwitter />
               </a>
               )
-            : ("")}
+              : ("")}
           {social.github !== "" ? (
             <a
-              href={`https://github.com/${social.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            href={`https://github.com/${social.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
             >
               <FaGithub />
             </a>
           ) : (
             ""
-          )}
+            )}
           <a
             href="#TODO"
             target="_blank"
             rel="noopener noreferrer"
-          >
+            >
             <Feedly />
           </a>
           <a href={`${siteUrl}/sitemap.xml`}>
@@ -119,6 +127,9 @@ const Footer = () => {
             <FaRss />
           </a>
         </div>
+      </div>
+      <div className='lower-inner'>
+        <address>© {author}. All rights reserved.</address>
       </div>
     </Wrapper>
   )

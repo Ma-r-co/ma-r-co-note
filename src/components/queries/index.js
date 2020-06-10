@@ -14,6 +14,7 @@ export const useSiteMetadata = () => {
               twitter
               github
             }
+            siteRecaptchaKey
           }
         }
       }

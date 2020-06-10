@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   justify-content: center;
   margin-top: 370px;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 75px;
   z-index: 999;
   .message {
     position: absolute;

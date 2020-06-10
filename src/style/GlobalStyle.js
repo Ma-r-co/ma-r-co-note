@@ -12,6 +12,7 @@ colors.text = "#17252A"
 colors.paleGray = "#f9f9f9"
 colors.lightGray = "#ddd"
 colors.gray = "#96acb3"
+colors.primaryGray = "#627E8C"
 
 colors.primaryPurple = "#2B7A78"
 colors.primary = "#3AAFA9"
