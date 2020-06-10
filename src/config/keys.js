@@ -1,9 +1,5 @@
-var siteRecaptchaKey = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY;
-if (typeof siteRecaptchaKey === 'undefined') {
-  const keys = require('./dev');
-  siteRecaptchaKey = keys.siteRecaptchaKey;
+if (typeof process.env.NODE_ENV === 'production') {
+  module.exports = require('./prod');
+} else {  
+  module.exports = require('./dev');
 }
-
-module.exports = {
-  siteRecaptchaKey
-};

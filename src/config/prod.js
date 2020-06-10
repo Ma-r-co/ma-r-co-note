@@ -1,3 +1,3 @@
 module.exports = {
-  siteRecaptchaKey: process.env.SITE_RECAPTCHA_KEY,
+  siteRecaptchaKey: process.env.GATSBY_SITE_RECAPTCHA_KEY,
 };
