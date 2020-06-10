@@ -4,8 +4,9 @@ import Recaptcha from 'react-google-recaptcha';
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { siteRecaptchaKey } from '../config/keys';
 import { MdPerson, MdEmail } from "react-icons/md";
+import { useSiteMetadata } from "../components/queries";
+
 
 const Wrapper = styled.div`
   width: var(--width);
@@ -87,16 +88,6 @@ const Wrapper = styled.div`
   }
 `
 
-const RECAPTCHA_KEY = siteRecaptchaKey;
-if (typeof RECAPTCHA_KEY === 'undefined') {
-  throw new Error(`
-  siteRecaptchaKey is undefined! 
-  You probably forget to set SITE_RECAPTCHA_KEY in your Netlify build environment variables. 
-  Make sure to get a Recaptcha key at https://www.netlify.com/docs/form-handling/#custom-recaptcha-2-with-your-own-settings
-  Note this demo is specifically for Recaptcha v2
-  `)
-}
-
 function encode(data) {
 return Object.keys(data)
 .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -107,6 +98,7 @@ return Object.keys(data)
 const ContactPage = (props, location) => {
   const [state, setState] = React.useState({})
   const recaptchaRef = React.createRef()
+  const { siteRecaptchaKey } = useSiteMetadata();
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value })
@@ -160,9 +152,9 @@ const ContactPage = (props, location) => {
           <div className='iptxt'>
             <textarea name="message" required placeholder="お問合せ内容*" onChange={handleChange} />
           </div>
-          <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} class="g-recaptcha" />
+          <Recaptcha ref={recaptchaRef} sitekey={siteRecaptchaKey} className="g-recaptcha" />
           <div>
-            <button type="submit" class='submit-button'>送信</button>
+            <button type="submit" className='submit-button'>送信</button>
           </div>
         </form>
       </Wrapper>

@@ -8,6 +8,7 @@ module.exports = {
       twitter: `marco_marticus`,
       github: `Ma-r-co`,
     },
+    siteRecaptchaKey: '6LdGn6IZAAAAALP1ZCquqx_vOw64Di7ghraKV5dJ',
   },
   plugins: [
     {

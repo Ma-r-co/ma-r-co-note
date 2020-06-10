@@ -33,10 +33,18 @@ const Wrapper = styled.div`
     &.home {
       top: var(--topHeight);
       position: absolute;
+      padding-bottom: 300px;
     }
     &.notHome {
       padding-top: 100px;
       padding-bottom: 100px;
+    }
+  }
+  @media screen and (max-width: 780px) {
+    .content {
+      .inner {
+        padding-bottom: 20px;
+      }
     }
   }
 `
