@@ -28,7 +28,7 @@ NetlifyにはFormsという便利な機能があり、サーバサイドの実�
 ![reCAPTCHA_apply](reCAPTCHA_apply.png)
 
 ### 1.2. Netlifyの環境変数を登録
-先ほど取得したサイトキーおよびシークレットキーをNetlify上に登録するSettings > Build & Deploy > Environment > Environment variablesに`SITE_RECAPTCHA_KEY`と`SITE_RECAPTCHA_SECRET`キーを登録する。
+先ほど取得したサイトキーおよびシークレットキーをNetlify上に登録する。Settings > Build & Deploy > Environment > Environment variablesに`SITE_RECAPTCHA_KEY`と`SITE_RECAPTCHA_SECRET`キーを登録する。
 
 ![reCapture_env_var](reCapture_env_var.png)
 
