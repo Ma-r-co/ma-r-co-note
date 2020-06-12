@@ -86,6 +86,11 @@ const Wrapper = styled.div`
     box-shadow: none;
     transition: .1s;
   }
+  @media screen and (max-width: 780px) {
+    .iptxt {
+      width: 80%;
+    }
+  }
 `
 
 function encode(data) {
@@ -123,8 +128,8 @@ const ContactPage = (props, location) => {
 
   return (
     <Layout location={location} title="contact">
-      <SEO title="contact" noindex />
-      <Wrapper>
+      <SEO title="お問合せ" noindex />
+      <Wrapper className='inner'>
         <h1>お問合せ</h1>
         <form
           name="contact"

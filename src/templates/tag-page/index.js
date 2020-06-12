@@ -10,7 +10,7 @@ const TagPageTemplate = ({ data, location, pageContext }) => {
   const tagName = pageContext.slug
   const posts = data.allMarkdownRemark.edges
   return (
-    <Layout location={location} title="title">
+    <Layout location={location}>
       <SEO
         title={`タグ: ${tagName}`}
         description={`${tagName}タグを含む記事の一覧ページです`}

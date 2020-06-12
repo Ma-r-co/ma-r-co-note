@@ -26,6 +26,7 @@ const Wrapper = styled.footer`
     a {
       text-decoration: none;
       color: var(--primaryGray);
+      margin-right: 35px;
     }
     a:hover {
       color: var(--text);
@@ -90,6 +91,8 @@ const Footer = () => {
     <Wrapper>
       <div className="upper-inner">
         <Link to='/contact'>お問合せ</Link>
+        <Link to='/disclaimer'>免責事項</Link>
+        <Link to='/privacy-policy'>プライバシーポリシー</Link>
         <div className="right">
           {social.twitter !== ""
             ? (
