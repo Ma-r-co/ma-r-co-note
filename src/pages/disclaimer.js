@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   }
 `
 
-const PrivacyPolicy = ({ location }) => {
+const Disclaimer = ({ location }) => {
   return (
     <Layout location={location} >
       <SEO title="免責事項" noindex />
@@ -37,4 +37,4 @@ const PrivacyPolicy = ({ location }) => {
   )
 }
 
-export default PrivacyPolicy
+export default Disclaimer
