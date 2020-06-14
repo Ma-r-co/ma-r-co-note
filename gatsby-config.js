@@ -195,6 +195,7 @@ module.exports = {
         icon: `${__dirname}/src/images/moai_icon_grayed.png`,
       },
     },
+    `gatsby-plugin-twitter`,
     `gatsby-plugin-offline`,
   ],
 }
