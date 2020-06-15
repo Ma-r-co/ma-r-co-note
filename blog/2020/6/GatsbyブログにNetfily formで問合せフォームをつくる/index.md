@@ -2,7 +2,7 @@
 title: Gatsby + Netlify Forms でreCAPTCHAつき問合せフォームをつくる
 date: 2020-06-10T00:00:00.000Z
 description: NetlifyにはFormsという便利な機能があり、サーバサイドの実装なしで投稿機能を作ることができる。今回はこの機能を使って、Gatsbyブログに問合せフォームを追加する。ついでにスパム防止のためのreCAPTCHA機能もつける。
-slug: gatsby-how-to-setup-netlify-form-with-reCAPTCHA
+slug: gatsby-how-to-setup-netlify-form-with-recaptcha
 tags: 
   - Gatsby
   - Netlify

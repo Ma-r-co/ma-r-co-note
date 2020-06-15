@@ -185,4 +185,4 @@ for s in sys.stdin.readlines():
 ```
 
 ## F - Pond Skater
-To be updated...
+[【Python】ABC170 F - Pond Skater 解説](https://marco-note.net/abc-170-F-work-log)
