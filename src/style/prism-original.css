@@ -3,13 +3,13 @@
   --white: #FEFFFF;
   --green: #1EAE95;
   --darkgreen: #588F4C;
-  --lightgreen: #A8C79E;
+  --lightgreen: #1DB89D;
   --blue: #398AC6;
   --lightblue: #85D7FD;
-  --yellow: #D7D7A0;
+  --yellow: #D8D8A1;
   --orange: #CE856C;
   --color: #666;
-  --black: #374549;
+  --black_background: #374549;
 }
 
 code {
@@ -39,8 +39,8 @@ pre code {
 }
 
 pre[class*="language-"], pre[class*="language-"]>code {
-  color: var(--green);
-  background: var(--black);
+  color: var(--lightblue);
+  background: var(--black_background);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: .95em;
   text-align: left;
@@ -250,8 +250,9 @@ pre[data-line] {
 .property,
 .constant,
 .symbol,
+.string,
 .deleted {
-  color: var(--green);
+  color: var(--orange);
 }
 
 .number {
@@ -259,11 +260,12 @@ pre[data-line] {
 }
 
 .selector,
-.string,
-.char,
 .builtin,
+.char,
+.function,
+.class-name,
 .inserted {
-  color: var(--orange);
+  color: var(--yellow);
 }
 
 .punctuation,
@@ -279,14 +281,8 @@ pre[data-line] {
 .boolean,
 .tag,
 .keyword {
-  color: var(--blue);
+  color: var(--purple);
 }
-
-.function,
-.class-name {
-	color: var(--yellow);
-}
-
 
 .important,
 .bold {
