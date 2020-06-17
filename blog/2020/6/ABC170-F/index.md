@@ -2,7 +2,7 @@
 title: 【Python】ABC170 F - Pond Skater 解説
 date: 2020-06-15T00:00:00.000Z
 description: ABC170 F問題がとても勉強になったのでメモ. Pythonによる01BFS解答を説明しています.
-slug: abc-170-F-work-log
+slug: abc-170-f-work-log
 tags: 
   - Python
   - 競プロ
