@@ -1,5 +1,5 @@
 ---
-title: 【Python】AtCoder Beginner Contest 170 参加記録, Python解答
+title: 【Python】ABC170 参加記録
 date: 2020-06-14T00:00:00.000Z
 description: AtCoder Beginner Contest 170(ABC170)に参加した. 結果は4完1506thでパフォーマンス1341. Pythonによる解答を載せます.
 slug: abc-170-work-log
