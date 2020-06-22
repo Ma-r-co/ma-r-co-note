@@ -1,7 +1,7 @@
 ---
 title: 【Python】ABC171 参加記録
 date: 2020-06-21T00:00:00.000Z
-description: AtCoder Beginner Contest 171(ABC171)に参加した. 結果は5完2532ndでパフォーマンス1092. Python解答を載せます.
+description: AtCoder Beginner Contest 171(ABC171)に参加した. 結果は5完2532ndでパフォーマンス1092. Python解答を載せます. F問題の解説を更新しました.
 slug: abc-171-work-log
 tags: 
   - Python
@@ -10,6 +10,8 @@ tags:
   - ABC
 keywords: Python
 ---
+
+[2020/6/22 F問題の解説を更新しました]
 
 ABC171に参加しました. 
 結果は5完2532ndでパフォーマンス1092.. ショックです... C問題がまともに解けませんでした.
@@ -144,4 +146,63 @@ for a in A:
 ```
 
 ## F - Strivore
-*TBA*
+この問題は以下のように言い換えることができる.
+
+- 長さ$|S|+K$の任意の文字列のうち, 文字列$S$を部分文字列としてもつものはいくつあるか? 
+
+推測だけど, この問題文だと難しすぎるので, 解法を思いつくヒントを与えるために最終的にあの問題文になったんじゃなかろうか.
+
+lesson-learnedは,   
+*文字列の問題では* ***「左から見て$i$番目に初めて文字$c$が登場するとき、」*** *という考え方がポイントになる*  
+かな.
+
+
+```python
+# pypyでないとTLEになる
+
+# 0~nまでの階乗およびその逆元の値を求める関数.
+def prepare(n):
+    global MOD
+    modFacts = [0] * (n + 1)
+    modFacts[0] = 1
+    for i in range(n):
+        modFacts[i + 1] = (modFacts[i] * (i + 1)) % MOD
+
+    invs = [1] * (n + 1)
+    invs[n] = pow(modFacts[n], MOD - 2, MOD)
+    for i in range(n, 1, -1):
+        invs[i - 1] = (invs[i] * i) % MOD
+
+    return modFacts, invs
+
+
+MOD = 10 ** 9 + 7
+K = int(input())
+S = input()
+L = len(S)
+
+# 組合せ計算のための前処理
+modFacts, invs = prepare(K + L)
+
+# 累乗計算のための前処理
+pow25 = [1] * max(L + 1, K + 1)
+pow26 = [1] * max(L + 1, K + 1)
+for i in range(max(L, K)):
+    pow25[i + 1] = (pow25[i] * 25) % MOD
+    pow26[i + 1] = (pow26[i] * 26) % MOD
+# なお, この前処理は必須ではない. pow()はlogオーダーで計算できるため,
+# 下のループ内でpow(25, n - L, MOD)などと書いて直接計算しても十分間に合う.
+
+ans = 0
+for n in range(L, L + K + 1):
+    # "Si以外の位置の文字を選ぶ通り数"
+    nonSi = (pow25[n - L] * pow26[L + K - n]) % MOD
+    
+    # "S1 ~ S_N-1 の位置を選ぶ通り数"
+    Si = (modFacts[n - 1] * invs[L - 1] * invs[n - 1 - (L - 1)]) % MOD
+    
+    ans += nonSi * Si
+    ans %= MOD
+
+print(ans)
+```
