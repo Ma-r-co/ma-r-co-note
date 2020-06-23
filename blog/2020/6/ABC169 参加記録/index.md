@@ -142,4 +142,7 @@ print(cnt)
 ```
 
 ## F - Knapsack for All Subsets
-脊髄反射的にDPを実装したが$O(N^2S)$ になり間に合わず。無念。
+脊髄反射的にDPを実装したが$O(N^2S)$ になり間に合わず。無念。  
+考察が足りなかった.  
+こちらで解法を説明しています.  
+[【Python】ABC169 F - Knapsack for All Subsets 解説](/abc-169-f-work-log)
