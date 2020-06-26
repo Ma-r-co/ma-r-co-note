@@ -81,7 +81,7 @@ A = list(map(int, input().split()))
 
 MOD = 998244353
 
-dp = [0] * (S + 1) b  # DP配列は1次元
+dp = [0] * (S + 1)  # DP配列は1次元
 dp[0] = 1
 
 for i in range(N):
