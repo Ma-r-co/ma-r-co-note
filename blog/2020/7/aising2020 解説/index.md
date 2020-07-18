@@ -15,6 +15,7 @@ keywords: Python
 リアルタイムでは参加できなかったので, バチャコンで参加. 結果はぎりぎり4完. コンテストであれば1400位くらいの成績でしょうか.    
 Pythonでの解答・解説を載せます.  
 
+疑問点・不明点など, ページ最下部のお問合せもしくはTwitterからメッセージいただければ回答いたします.  
 
 ## A - Number of Multiples
 全探索してもいいし, 一発で求めることも可能.  
@@ -179,7 +180,79 @@ for i in range(N):
 ```
 
 ## E - Camel Train
-TBA
+
+考察の難易度は低いが, 時間内に解くとなるとかなり難しそう.
+
+
+考え方は以下の通り. 想定解答とは逆の考え方(点数を極力減らさない並べ方)をした.
+
+まず、ラクダを3つのグループに分ける. 1: $L > R$, 2: $L < R$, 3: $L == R$.  
+グループ3はどこに配置しても答えは変わらないため考察不要.  
+以下、グループ1について考察する. 
+- グループ1のラクダは極力左側に配置してあげると点数が高くなる. 最大で $\sum_{i} L_i$となる可能性があるが, 実際は$K_i$より右側に配置されたラクダの分、点数が $L_i - R_i$ だけ小さくなる.  
+- では、どのような場合に$K_i$より右側に配置されるラクダが存在するのか？
+- 例えば、{$K_i = 1$のラクダが$2$頭}の場合、どちらか1頭は$K_i$より右側に配置される. {$K_i=1$ が $2$頭, $K_i=2$ が $1$頭}の場合は**3頭中の1頭**, {$K_i=1$ が $2$頭, $K_i=2$ が $2$頭}の場合は**4頭中の2頭**, etc...
+- つまり, $K_i$以下のラクダが$n$頭存在する場合, $n - i$頭は右側に配置されるのである.  
+- では次に、どのラクダを右側に配置するべきか？
+- これは点数の減少幅がもっとも小さいラクダ、すなわち $L_i - R_i$ が小さいラクダを右側に配置すべきである.  
+- グループ2についても同様に, 極力右側に配置して, どのラクダが左側に溢れてしまうかを考える.  
+
+
+```python
+import sys
+from heapq import heappop, heappush
+
+
+T = int(input())
+for t in range(T):
+    N = int(input())
+    left, right = [], []  # left: グループ1, right: グループ2
+    ans = 0
+    for i in range(N):
+        K, L, R = map(int, sys.stdin.readline().split())
+        if L > R:  # グループ1
+            ans += L
+            left.append((K, L - R))
+        elif L < R:  # グループ2
+            ans += R
+            right.append((K, R - L))
+        else:  # グループ3
+            ans += L
+    # グループ1について計算
+    pool = []  # Kiより左側に配置されるラクダの集合. L-Rの小さい順に格納される.
+    left.sort()  #Kiの順にソート
+    cur = 0
+    pos = 1  # 左からpos番目以下のラクダについて計算
+    while cur < len(left):
+        # Ki <= pos のラクダをすべてpoolに格納する 
+        while cur < len(left) and left[cur][0] == pos:
+            k, d = left[cur]
+            heappush(pool, d)
+            cur += 1
+
+        # pool内のラクダがpos頭を超えている場合, 一部のラクダは右側に配置される.　その分だけ答えが減る.
+        while len(pool) > pos:
+            d = heappop(pool)
+            ans -= d  # 答えがLi-Riだけ小さくなる
+        pos += 1
+            
+    # グループ2について計算
+    pool = []
+    pos = N
+    right.sort(reverse=True)
+    cur = 0
+    while cur < len(right):
+        while cur < len(right) and right[cur][0] == pos:
+            k, d = right[cur]
+            heappush(pool, d)
+            cur += 1
+        while len(pool) > N - pos:
+            d = heappop(pool)
+            ans -= d
+        pos -= 1
+
+    print(ans)
+```
 
 ## F - Two Snuke
 TBA
