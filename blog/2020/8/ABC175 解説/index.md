@@ -172,4 +172,90 @@ print(ans)
 ```
 
 ## F - Making Palindrome
-TBA
+解説AC.  
+うーん、これは難しい...
+
+Dijkstra法は, heapqではなくdequeを使用した擬似Dijkstra法で実装.  
+(計算量的には不利だが, Pythonではdequeを使った方が速いことが多い.)
+
+```python
+from collections import deque
+
+
+def isPalindrome(s):
+    L = len(s)
+    rst = True
+    if L:
+        for i in range(L // 2):
+            if s[i] != s[L - 1 - i]:
+                rst = False
+                break
+    return rst
+
+
+N = int(input())
+S = []
+for _ in range(N):
+    s, c = input().split()
+    S.append((s, int(c)))
+
+path = [dict() for _ in range(2)]
+q = deque()
+S.sort(key=lambda x: x[1])
+for s, c in S:
+    if s not in path[0] or path[0][s] > c:
+        path[0][s] = c
+        q.append((0, s, c))
+
+ans = float('inf')
+isPossible = False
+while q:
+    side, s0, c0 = q.popleft()
+    if isPalindrome(s0):
+        ans = min(ans, c0)
+        isPossible |= True
+    else:
+        for s1, c1 in S:
+            if side == 0:
+                l = s0
+                r = s1
+            else:
+                l = s1
+                r = s0
+
+            isCandidate = False
+            if len(l) > len(r):
+                for i in range(len(r)):
+                    if l[i] != r[-1 - i]:
+                        break
+                else:
+                    ns = l[len(r):]
+                    nc = c0 + c1
+                    nside = 0
+                    isCandidate |= True
+            elif len(l) < len(r):
+                for i in range(len(l)):
+                    if l[i] != r[-1 - i]:
+                        break
+                else:
+                    ns = r[:-len(l)]
+                    nc = c0 + c1
+                    nside = 1
+                    isCandidate |= True
+            else:
+                for i in range(len(l)):
+                    if l[i] != r[-1 - i]:
+                        break
+                else:
+                    ns = ''
+                    nc = c0 + c1
+                    nside = 0
+                    isCandidate |= True
+            if isCandidate and (ns not in path[nside] or path[nside][ns] > nc):
+                path[nside][ns] = nc
+                q.append((nside, ns, nc))
+if isPossible:
+    print(ans)
+else:
+    print(-1)
+```
