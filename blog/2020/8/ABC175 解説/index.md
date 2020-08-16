@@ -13,9 +13,10 @@ keywords: Python
 
 
 ABC175に参加しました. 
-結果は4完1065thでパフォーマンス1468... 実力相応かなと..
-
+結果は4完1065thでパフォーマンス1468... 実力相応かなと..  
 今回は全体的に考察:易, 実装:難だったように感じます.
+
+以下, A~F問題の解説および解答例です.
 
 ## A - Rainy Season
 'R'が存在するか, 'RR'が存在するか, ... と順に調べる.
@@ -53,9 +54,9 @@ print(cnt)
 - **①$K * D \le X$ のとき**  
 $K$回とも$-D$動く場合が最も原点に近い. $X - D * K$が答えとなる.
 - **②$K * D \gt X$ のとき**  
-解答の候補となる点は, 原点に近い**0以上の点**, **負の点**のどちらかである. この2点を行ったり来たりの移動をする.
+解答の候補となる点は, 原点に近い**0以上の点**, **負の点**のどちらかである. この2点を行ったり来たりする.
 - では, 最終的にどちらの点に止まるのか?
-- $r := X // D$とすると, **0以上の点**は$X - D * r$ であり, **負の点**は $X - D * (r + 1)$ と求めることができる. 
+- $r := X // D$とすると, **0以上の点**は$X - D * r$, **負の点**は $X - D * (r + 1)$ と求めることができる. 
 - ここでパリティの関係より, r % 2 == K % 2 のときは**0以上の点**, r % 2 != K % 2のときは**負の点**に止まる.
 
 ![ABC175-C](ABC175-C.png)
@@ -175,22 +176,18 @@ print(ans)
 解説AC.  
 うーん、これは難しい...
 
-Dijkstra法は, heapqではなくdequeを使用した擬似Dijkstra法で実装.  
-(計算量的には不利だが, Pythonではdequeを使った方が速いことが多い.)
+Dijkstra法はではなくBFSで実装.  
+(計算量的には不利だが, Pythonではdequeを使ったBFSの方が速いことが多い.)
 
 ```python
 from collections import deque
 
 
 def isPalindrome(s):
+    ''' s: string が回文か判定する. 回文 -> True, 回文でない -> False.
+    '''
     L = len(s)
-    rst = True
-    if L:
-        for i in range(L // 2):
-            if s[i] != s[L - 1 - i]:
-                rst = False
-                break
-    return rst
+    return all(s[i] == s[L - 1 - i] for i in range(L // 2))
 
 
 N = int(input())
@@ -199,62 +196,54 @@ for _ in range(N):
     s, c = input().split()
     S.append((s, int(c)))
 
-path = [dict() for _ in range(2)]
+path = [dict() for _ in range(2)]  # 余り文字列へ到達するコスト, path[0]:左側余り, path[1]: 右側余り
 q = deque()
-S.sort(key=lambda x: x[1])
-for s, c in S:
+S.sort(key=lambda x: x[1])  # コストの小さい順にソートしておくと速くなる.
+for s, c in S:  # 初期処理. Siを左側余り文字列と見做してキューに入れていく.
     if s not in path[0] or path[0][s] > c:
         path[0][s] = c
         q.append((0, s, c))
 
-ans = float('inf')
-isPossible = False
+INF = 10 ** 15
+ans = INF
 while q:
     side, s0, c0 = q.popleft()
-    if isPalindrome(s0):
+    if isPalindrome(s0):  # 余り文字列自体が回文のとき
         ans = min(ans, c0)
-        isPossible |= True
-    else:
+    else:  # 余り文字列が回文でないとき, 他の文字列を追加する
         for s1, c1 in S:
             if side == 0:
-                l = s0
-                r = s1
+                l, r = s0, s1
             else:
-                l = s1
-                r = s0
+                l, r = s1, s0
 
-            isCandidate = False
-            if len(l) > len(r):
-                for i in range(len(r)):
-                    if l[i] != r[-1 - i]:
-                        break
-                else:
-                    ns = l[len(r):]
+            L = len(l)
+            R = len(r)
+            isCandidate = False  # s1が追加可能な文字列かどうかを示すフラグ
+            if L > R:
+                if all(l[i] == r[-1 - i] for i in range(R)):
+                    ns = l[R:]
                     nc = c0 + c1
                     nside = 0
                     isCandidate |= True
-            elif len(l) < len(r):
-                for i in range(len(l)):
-                    if l[i] != r[-1 - i]:
-                        break
-                else:
-                    ns = r[:-len(l)]
+            elif L < R:
+                if all(l[i] == r[-1 - i] for i in range(L)):
+                    ns = r[:-L]
                     nc = c0 + c1
                     nside = 1
                     isCandidate |= True
             else:
-                for i in range(len(l)):
-                    if l[i] != r[-1 - i]:
-                        break
-                else:
+                if all(l[i] == r[-1 - i] for i in range(L)):
                     ns = ''
                     nc = c0 + c1
                     nside = 0
                     isCandidate |= True
+
             if isCandidate and (ns not in path[nside] or path[nside][ns] > nc):
                 path[nside][ns] = nc
                 q.append((nside, ns, nc))
-if isPossible:
+
+if ans < INF:
     print(ans)
 else:
     print(-1)
