@@ -47,7 +47,7 @@ for i in range(ls - lt + 1):
 print(ans)
 ```
 
-## Sum of product of pairs
+## C - Sum of product of pairs
 累積和の典型問題. 良問だと思う.
 
 ```python
