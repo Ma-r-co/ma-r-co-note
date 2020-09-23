@@ -17,6 +17,7 @@ ABC179は参加できず、バーチャル参加しました.  結果は5完59:4
 
 以下, A~F問題の解説および解答例です.
 
+*[2020/09/23]D,F問題の解説を更新しました.*
 
 ## A - Plural Form
 
@@ -54,8 +55,63 @@ print(cnt)
 ```
 
 ## D - Leaping Tak
-これは実装が難しかった.  D問題でSeg木を使うのは初めてかも.  
+これは実装が難しかった.  D問題でSeg木を使ったのは初めてかも.  
 $\mathcal{O}(n^2)$のDP解法はすぐに考えつくと思うが, これをどうやって計算量を減らすか.  
+
+解法を3つ載せます.  
+
+### 解法1: 公式解答 - 配るDP
+```python
+MOD = 998244353
+N, K = map(int, input().split())
+S = [tuple(map(int, input().split())) for _ in range(K)]
+S.sort()
+
+f = [0] * N  # f: マスiまで移動する方法の個数(0-index)
+f[0] = 1
+a = [0] * (N + 1) # ai := fi - f_i-1
+a[1] = -1  # この初期条件の-1を忘れないように注意!
+
+for i in range(0, N - 1):
+    for l, r in S:
+        if i + l < N:
+            a[i + l] += f[i]
+            a[i + l] %= MOD
+        if i + r + 1 < N:
+            a[i + r + 1] -= f[i]
+            a[i + r + 1] %= MOD
+    f[i + 1] = (f[i] + a[i + 1]) % MOD
+
+print(f[-1])
+```
+
+### 解法2: 貰うDP - 累積和
+```python
+MOD = 998244353
+N, K = map(int, input().split())
+S = [tuple(map(int, input().split())) for _ in range(K)]
+S.sort()
+
+dp = [0] * N
+dp[0] = 1
+dpsum = [0] * (N + 1)  # dpsum: 累積和
+dpsum[1] = 1
+
+for i in range(1, N):
+    for l, r in S:
+        li = i - r
+        ri = i - l
+        if ri < 0:
+            continue
+        li = max(0, li)
+        dp[i] += dpsum[ri + 1] - dpsum[li]
+        dp[i] %= MOD
+    dpsum[i + 1] = (dpsum[i] + dp[i]) % MOD
+
+print(dp[-1])
+```
+
+### 解法3: 貰うDP - 累積和をSeg木で管理
 
 - 以下, **貰うDP**を考える. $f_i := マスiまで移動する方法$とする.
 - ある$f_i$について, 区間$[l, r]$が与えられると $f_i$ += $f_{i - r} + f_{i - (r + 1)} + \cdots + f_{i - l}$ で計算できる. この右辺をどうやったら高速に求められるか?
@@ -181,11 +237,13 @@ print(ans)
 
 ## F - Simplified Reversi
 時間終了後に自力ACできた.  
-とりあえず計算量度外視でシミューレション実装をして, 計算量を減らすためにSeg木を使ったところACできた.  
-しかし, 数式をイジっていたらたまたま計算量が減っただけなので, なぜこれで正解なのか理論的背景がわからなくなってしまった.  
 
-とにかく解答を載せる.  
-解説はTBA.
+考え方は以下のツイートがわかりやすいと思う.
+
+<blockquote class="twitter-tweet" data-conversation="none"><p lang="ja" dir="ltr">アライグマ「F問題は、縦横それぞれ「クエリが来たら黒石が何個減るか」を配列で持ってみるのだ。更新にO(N)くらいかかりそうだけど、上の方・左の方はまとめて1つの変数に持っておくことにすれば、配列の更新は高々1回になって、全体でO(N)になるのだ！」 <a href="https://t.co/hXugXsMAHA">pic.twitter.com/hXugXsMAHA</a></p>&mdash; 競技プログラミングをするフレンズ (@kyopro_friends) <a href="https://twitter.com/kyopro_friends/status/1307315732812713986?ref_src=twsrc%5Etfw">September 19, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+リバーシ盤の左と上に書いてある数列をSeg木を使って管理する.
+点更新, 区間最小値取得. 
 
 ```python
 import sys
@@ -254,21 +312,25 @@ class SegmentTree():
 N, Q = map(int, input().split())
 query = [tuple(map(int, sys.stdin.readline().split())) for _ in range(Q)]
 
-flagH = [N - 1] * N
-flagW = [N - 1] * N
-
+# 演算子=min, 単位元=N-1 のSegmentTreeを作る.
+# 縦方向(stH), 横方向(stW)の2つを用意する.
 stH = SegmentTree([N - 1] * N, min, N - 1)
 stW = SegmentTree([N - 1] * N, min, N - 1)
 
 cnt = 0
 for t, x in query:
+    x -= 1  # xを0-indexに修正
+
+    # tの値に応じて操作するSeg木を変える
     if t == 1:
-        stX, stY = stW, stH
+        stA, stB = stW, stH
     else:
-        stX, stY = stH, stW
+        stA, stB = stH, stW
+    # このクエリによりいくつの黒石が置き換えられるかをカウントする
+    a = stA.get(x, N)
+    cnt += max(0, a - 1)
+    # 石を置いていない方のSeg木を更新する
+    stB.update(a, x)
 
-    cnt += max(0, stX.get(x - 1, N) - 1)
-    stY.update(stX.get(x - 1, N), x - 1)
-
-print(pow(N - 2, 2) - cnt)
+print(pow(N - 2, 2) - cnt) # 最初の黒石の個数((N-2)^2個)から置き換えられた数(cnt)を引く
 ```
