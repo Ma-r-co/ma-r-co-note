@@ -2,7 +2,7 @@
 title: 【Python】ACL Beginner Contest 解説
 date: 2020-09-26T00:00:00.000Z
 description: ACL Beginner Contest のPythonによる解答・解説を載せます.
-slug: ALCBC-work-log
+slug: aclbc-work-log
 tags: 
   - Python
   - 競プロ
