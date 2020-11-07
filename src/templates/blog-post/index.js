@@ -8,6 +8,8 @@ import Share from "../../components/share"
 import TOC from "../../components/toc"
 import Related, { Latest } from "../../components/related"
 import Wrapper from "./style"
+import Adsense1 from "../../components/googleAdsense"
+
 
 const BlogPostTemplate = ({ data, location, pageContext }) => {
   const post = data.markdownRemark
@@ -33,6 +35,9 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
             title={post.frontmatter.title}
             url={`${site.siteUrl}/${post.frontmatter.slug}/`}
           />
+          <div className="adsense1">
+            <Adsense1/>
+          </div>
           {pageContext.relatedPosts.length === 0 ? (
             <Latest latest={pageContext.latestPosts} />
           ) : (
