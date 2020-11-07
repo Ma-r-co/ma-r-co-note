@@ -78,7 +78,7 @@ const BlogIndex = ({ data, location }) => {
         </div>
         <div className="inner">
           <div className="adsense1">
-            <AdSense1/>
+            <AdSense1 maxHeight="150px"/>
           </div>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
@@ -94,6 +94,9 @@ const BlogIndex = ({ data, location }) => {
               />
             )
           })}
+          <div className="adsense1">
+            <AdSense1/>
+          </div>
         </div>
       </Wrapper>
     </Layout>
