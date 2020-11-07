@@ -78,7 +78,7 @@ const BlogIndex = ({ data, location }) => {
         </div>
         <div className="inner">
           <div className="adsense1">
-            <AdSense1 maxHeight="150px"/>
+            <AdSense1/>
           </div>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
