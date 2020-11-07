@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Blog from "../components/blog"
 import Polygon from "../components/polygon"
+import AdSense1 from "../components/googleAdsense"
 // import Image from "gatsby-image"
 
 /* ===============================================
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 370px;
-  padding-top: 50px;
+  padding-top: 25px;
   padding-bottom: 75px;
   z-index: 999;
   .message {
@@ -48,6 +49,11 @@ const Wrapper = styled.div`
       margin-bottom: 15px;
     }
   }
+  .inner {
+    .adsense1 {
+      margin-bottom: 25px;
+    }
+  }
   @media screen and (max-width: 780px) {
     margin-bottom: 40px;
   }
@@ -61,7 +67,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location}>
       <SEO title={siteTitle} description={siteDescription} />
       <Polygon
-        height="400px"
+        height="370px"
         background="linear-gradient(45deg, #2B7A78 0%, #17252A 74%)"
       />
       <Wrapper>
@@ -71,6 +77,9 @@ const BlogIndex = ({ data, location }) => {
           <p>{data.site.siteMetadata.description}</p>
         </div>
         <div className="inner">
+          <div className="adsense1">
+            <AdSense1/>
+          </div>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
