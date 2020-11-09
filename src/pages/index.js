@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Blog from "../components/blog"
 import Polygon from "../components/polygon"
-import AdSense1 from "../components/googleAdsense"
+import {AdsenseAuto} from "../components/googleAdsense"
 // import Image from "gatsby-image"
 
 /* ===============================================
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
     }
   }
   .inner {
-    .adsense1 {
+    .adsbygoogle {
       margin-bottom: 25px;
     }
   }
@@ -77,8 +77,8 @@ const BlogIndex = ({ data, location }) => {
           <p>{data.site.siteMetadata.description}</p>
         </div>
         <div className="inner">
-          <div className="adsense1">
-            <AdSense1/>
+          <div>
+            <AdsenseAuto/>
           </div>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
@@ -94,8 +94,8 @@ const BlogIndex = ({ data, location }) => {
               />
             )
           })}
-          <div className="adsense1">
-            <AdSense1/>
+          <div>
+            <AdsenseAuto/>
           </div>
         </div>
       </Wrapper>

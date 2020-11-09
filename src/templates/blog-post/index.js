@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import rehypeReact from 'rehype-react'
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import { Tags } from "../../components/modules"
@@ -8,7 +9,15 @@ import Share from "../../components/share"
 import TOC from "../../components/toc"
 import Related, { Latest } from "../../components/related"
 import Wrapper from "./style"
-import Adsense1 from "../../components/googleAdsense"
+import {AdsenseAuto, AdsenseHori} from "../../components/googleAdsense"
+
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    'adsense': AdsenseHori,
+  },
+}).Compiler;
 
 
 const BlogPostTemplate = ({ data, location, pageContext }) => {
@@ -30,17 +39,14 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
             <Tags tags={post.frontmatter.tags} />
           </div>
           <TOC data={data.markdownRemark.tableOfContents} />
-          <div className="adsense1">
-            <Adsense1/>
-          </div>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <AdsenseAuto/>
+          {/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
+          <section>{renderAst(post.htmlAst)}</section>
           <Share
             title={post.frontmatter.title}
             url={`${site.siteUrl}/${post.frontmatter.slug}/`}
           />
-          <div className="adsense1">
-            <Adsense1/>
-          </div>
+          <AdsenseAuto/>
           {pageContext.relatedPosts.length === 0 ? (
             <Latest latest={pageContext.latestPosts} />
           ) : (
@@ -92,6 +98,7 @@ export const pageQuery = graphql`
         tags
         slug
       }
+      htmlAst
     }
   }
 `

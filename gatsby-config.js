@@ -9,6 +9,10 @@ module.exports = {
       github: `Ma-r-co`,
     },
     siteRecaptchaKey: '6LdGn6IZAAAAALP1ZCquqx_vOw64Di7ghraKV5dJ',
+    adsense: {
+      clientKey: 'ca-pub-7416328580394075',
+      slot1: '4572443902',
+    },
   },
   plugins: [
     {

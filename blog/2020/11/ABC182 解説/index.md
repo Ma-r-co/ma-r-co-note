@@ -44,6 +44,8 @@ for k in range(2, maxA + 1):  # k を全通り調べる
 print(ans)
 ```
 
+<adsense></adsense>
+
 ## C - To 3
 中学生のときに習う(?)知識を使う. 即ち, 
   - 「整数$n$が$3$の倍数」$\Leftrightarrow$ 「$n$の各桁の数字の和が$3$の倍数」
@@ -94,6 +96,8 @@ V = list(accumulate(S, func=max))  # V: iターン目での変位の最大値
 ans = max(X[i] + V[i] for i in range(N))  # X[i] + V[i]: iターン目でのx座標の最大値
 print(max(0, ans))
 ```
+
+<adsense></adsense>
 
 ## E - Akari
 
