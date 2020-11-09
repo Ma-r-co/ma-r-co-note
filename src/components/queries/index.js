@@ -15,6 +15,10 @@ export const useSiteMetadata = () => {
               github
             }
             siteRecaptchaKey
+            adsense {
+              clientKey
+              slot1
+            },
           }
         }
       }

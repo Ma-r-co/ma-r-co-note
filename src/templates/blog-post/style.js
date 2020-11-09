@@ -316,8 +316,9 @@ const Wrapper = styled.div`
         padding: 0 30px;
       }
     }
-    .adsense1 {
-      margin-bottom: 25px;
+    .adsbygoogle {
+        margin-top: 40px;
+        margin-bottom: 40px;
     }
   }
   @media screen and (max-width: 780px) {

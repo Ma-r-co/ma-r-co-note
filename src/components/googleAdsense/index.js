@@ -1,20 +1,48 @@
-import React from 'react';
-import Adsense from 'react-adsense'
+import React, {useEffect} from 'react';
+import { useSiteMetadata } from "../../components/queries";
 
 
-const AdSense1 = () => {
+
+export const AdsenseAuto = props => {
+  const { currentPath } = props;
+  const { adsense } = useSiteMetadata();
+  
+  useEffect(() => {
+    window.adsbygoogle = window.adsbygoogle || []
+    window.adsbygoogle.push({})
+  }, [currentPath]);
+
+
   return (
-    <div>
-      <Adsense.Google 
-        style={{display: "block"}}
-        client="ca-pub-7416328580394075"
-        slot="4572443902"
-        format="auto"
-        responsive="true"
-      /> 
-    </div>
+      <ins 
+        className="adsbygoogle"
+        style={{display:'block'}}
+        data-ad-client={adsense.clientKey}
+        data-ad-slot={adsense.slot1}
+        data-ad-format='auto'
+        data-full-width-responsive='true'
+      />
   )
 }
 
-export default AdSense1
+export const AdsenseHori = props => {
+  const { currentPath } = props;
+  const { adsense } = useSiteMetadata();
+  
+  useEffect(() => {
+    window.adsbygoogle = window.adsbygoogle || []
+    window.adsbygoogle.push({})
+  }, [currentPath]);
 
+
+  return (
+      <ins 
+        className="adsbygoogle"
+        style={{display:'block'}}
+        data-ad-client={adsense.clientKey}
+        data-ad-slot={adsense.slot1}
+        data-ad-format='horizontal'
+        data-full-width-responsive='true'
+      />
+  )
+}

@@ -35,7 +35,7 @@ const Wrapper = styled.div`
     background: var(--paleGray);
     padding: 20px 30px 10px 30px;
     font-size: 0.9rem;
-    margin: 50px 0;
+    margin: 50px 0 30px 0;
     border-radius: 3px;
     ul {
       width: auto;
