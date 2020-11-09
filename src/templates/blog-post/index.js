@@ -30,6 +30,9 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
             <Tags tags={post.frontmatter.tags} />
           </div>
           <TOC data={data.markdownRemark.tableOfContents} />
+          <div className="adsense1">
+            <Adsense1/>
+          </div>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <Share
             title={post.frontmatter.title}

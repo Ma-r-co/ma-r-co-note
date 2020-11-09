@@ -195,12 +195,6 @@ module.exports = {
         icon: `${__dirname}/src/images/moai_icon_grayed.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-adsense`,
-      options: {
-        publisherId: `ca-pub-7416328580394075`
-      },
-    },
     `gatsby-plugin-twitter`,
     `gatsby-plugin-offline`,
   ],
