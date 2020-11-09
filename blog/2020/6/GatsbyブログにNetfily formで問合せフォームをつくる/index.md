@@ -32,6 +32,8 @@ NetlifyにはFormsという便利な機能があり、サーバサイドの実�
 
 ![reCapture_env_var](reCapture_env_var.png)
 
+<adsense></adsense>
+
 ## 2. 問合せフォームの作成
 
 
@@ -179,6 +181,8 @@ export default function Contact() {
 上手くいっていれば以下のようなreCAPTCHAが追加されているはず。
 
 ![sample_screen](sample_screen.png)
+
+<adsense></adsense>
 
 ## 3. 稼働確認
 Netlifyにデプロイして稼働確認をしてみる.
