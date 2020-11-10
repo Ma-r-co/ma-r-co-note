@@ -3,7 +3,8 @@ import { useSiteMetadata } from "../../components/queries";
 
 
 
-export const AdsenseAuto = () => {
+export const AdsenseAuto = ( props ) => {
+  const { currentPath } = props
   const { adsense } = useSiteMetadata();
   
   useEffect(() => {
@@ -11,7 +12,7 @@ export const AdsenseAuto = () => {
     window.adsbygoogle = window.adsbygoogle || []
     window.adsbygoogle.push({})
     }
-  });
+  }, [currentPath]);
 
 
   return (
@@ -26,7 +27,8 @@ export const AdsenseAuto = () => {
   )
 }
 
-export const AdsenseHori = () => {
+export const AdsenseHori = ( props ) => {
+  const { currentPath } = props
   const { adsense } = useSiteMetadata();
   
   useEffect(() => {
@@ -34,7 +36,7 @@ export const AdsenseHori = () => {
     window.adsbygoogle = window.adsbygoogle || []
     window.adsbygoogle.push({})
     }
-  });
+  }, [currentPath]);
 
 
   return (
