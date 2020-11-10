@@ -3,14 +3,15 @@ import { useSiteMetadata } from "../../components/queries";
 
 
 
-export const AdsenseAuto = props => {
-  const { currentPath } = props;
+export const AdsenseAuto = () => {
   const { adsense } = useSiteMetadata();
   
   useEffect(() => {
+    if (window) {
     window.adsbygoogle = window.adsbygoogle || []
     window.adsbygoogle.push({})
-  }, [currentPath]);
+    }
+  });
 
 
   return (
@@ -25,14 +26,15 @@ export const AdsenseAuto = props => {
   )
 }
 
-export const AdsenseHori = props => {
-  const { currentPath } = props;
+export const AdsenseHori = () => {
   const { adsense } = useSiteMetadata();
   
   useEffect(() => {
+    if (window) {
     window.adsbygoogle = window.adsbygoogle || []
     window.adsbygoogle.push({})
-  }, [currentPath]);
+    }
+  });
 
 
   return (

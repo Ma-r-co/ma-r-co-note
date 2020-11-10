@@ -70,6 +70,8 @@ for d, t in enumerate(T):
     print(cnt)
 ```
 
+<adsense></adsense>
+
 ## C - Incremental Scoring
 コンテスト中にバグが取りきれなかった.  
 後で気づいたのだが, $c_i$に$0$が存在するときに条件分けが不正になるバグであった. サンプルが少ないためこういったバグに気づけないのがつらい.  
