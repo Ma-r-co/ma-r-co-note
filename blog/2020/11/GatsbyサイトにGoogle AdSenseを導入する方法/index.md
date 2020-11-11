@@ -94,7 +94,7 @@ export const Adsense = ( props ) => {
 ```jsx
 // src/components/googleAdsense/index.js
 
-import React, { useEffec } from 'react';
+import React, { useEffect } from 'react';
 
 
 export const Adsense = ( props ) => {
@@ -112,7 +112,7 @@ export const Adsense = ( props ) => {
         className="adsbygoogle"
         style={{display:'block'}}
         data-ad-client="ca-pub-123456789" // 自サイトのコードに置き換える
-        data-ad-slot="123456789" // 次サイトのスロットに置き換える
+        data-ad-slot="123456789" // 自サイトのスロットに置き換える
         data-ad-format='auto'  // 自由
         data-full-width-responsive='true' // 自由
       />
@@ -128,6 +128,7 @@ export const Adsense = ( props ) => {
 
 ```jsx
 // src/templates/blogTemplate.js
+
 import React from "react"
 import { graphql } from "gatsby"
 import { Adsense } from "../components/googleAdsense/index.js"
@@ -158,15 +159,16 @@ export const pageQuery = graphql`
 `
 ```
 
-ここまでうまく実装できていれば、サイトに広告が表示されるはずである。
-開発環境では実際の広告は表示されず、黄色背景(もしくは透明)のスペースが見えるはず。
+ここまでうまく実装できていれば、サイトに広告が表示される。
+開発環境では実際の広告は表示されず、黄色背景(もしくは透明)の領域が表示されるはず。
 
 <adsense></adsense>
 
 ## 4. Markdown記事内に広告を配置する
-TBA
+[Gatsby - MarkdownページにAdSenseを挿入する方法](/how-to-insert-adsense-to-markdown)
 
 
 ## 参考
 :link:[Fix Google AdSense loading issues with React](https://mao-tss.medium.com/fix-google-adsense-loading-issues-with-react-f338cbd61ac4)  
 :link:[GatsbyサイトにGoogleAdSenseを導入する](https://qiita.com/bob_yama/items/2b24fca112587a1bf8e8)
+
