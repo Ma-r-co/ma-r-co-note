@@ -81,9 +81,11 @@ function setColor() {
 #  font setting
 =============================================== */
 const font = css`
-  font-family: -apple-system, system-ui, "Helvetica Neue", "Segoe UI",
-    "Hiragino Kaku Gothic ProN", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", Arial,
-    メイリオ, Meiryo, sans-serif;
+  // font-family: -apple-system, system-ui, "Helvetica Neue", "Segoe UI",
+  //   "Hiragino Kaku Gothic ProN", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", Arial,
+  //   メイリオ, Meiryo, sans-serif;
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 
+       'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   word-wrap: break-word;
   word-break: break-all;
   -moz-font-feature-settings: "palt";
@@ -153,6 +155,14 @@ const GlobalStyle = createGlobalStyle`
   // ::selection {
   //   background: rgba(180, 216, 253, 0.35);
   // }
+  .katex {
+    font-size: 1.1em;
+    .text {
+      font-size: 0.9em;
+    }
+  }
+  ins.adsbygoogle { background: transparent; }
+
 
   /* ===============================================
   # smart phone
