@@ -157,6 +157,9 @@ const GlobalStyle = createGlobalStyle`
   // }
   .katex {
     font-size: 1.1em;
+    .text {
+      font-size: 0.9em;
+    }
   }
   ins.adsbygoogle { background: transparent; }
 

@@ -39,12 +39,12 @@ print(ans)
 公式解説みたいに$f(N, K) = min(K - 1, 2N + 1 - K)$をスマートに導出できる人なんているんだろうか...
 
 私の考え方は以下の通り.
-- まず, $X = a + b$, $Y = c + d$とおくと,　条件は$X - Y = K \cdots ①$, $2 \leq X \leq 2N\cdots ②$, $2 \leq Y \leq 2N\cdots ③$ となる.
+- まず, $X = a + b$, $Y = c + d$とおくと,　条件は$X - Y = K \cdots \text{①}$, $2 \leq X \leq 2N\cdots \text{②}$, $2 \leq Y \leq 2N\cdots \text{③}$ となる.
 - ここで①より, $X$が決まれば$Y$も決まるため, 各$X = 2, 3, \cdots, 2N$について, 答えを数え上げていけば良い.
-- では, $a + b = X\cdots ④$ を満たす整数$(a, b)$の組はいくつ存在するか？
-- まず, $a$が満たすべき条件は $1 \leq a \leq N \cap 1 \leq a \leq X-1 \Leftrightarrow 1 \leq a \leq min(X-1, N) \cdots ⑤$ である. 
-- 同様にして, $b$が満たすべき条件は $1 \leq b \leq min(X - 1, N) \cap ④$. つまり, $1 \leq X - a \leq min(X, N) \Leftrightarrow X - min(X - 1, N) \leq a \leq X - 1 \Leftrightarrow max(1, X - N) \leq a \leq X - 1 \cdots ⑥$
-- 結局, $⑤ \cap ⑥ \Leftrightarrow max(1, X - N) \leq a \leq min(X-1, N)$の範囲に含まれる整数$a$の数が, $(a, b)$の組の個数となる. 
+- では, $a + b = X\cdots \text{④}$ を満たす整数$(a, b)$の組はいくつ存在するか？
+- まず, $a$が満たすべき条件は $1 \leq a \leq N \cap 1 \leq a \leq X-1 \Leftrightarrow 1 \leq a \leq min(X-1, N) \cdots \text{⑤}$ である. 
+- 同様にして, $b$が満たすべき条件は $1 \leq b \leq min(X - 1, N) \cap \text{④}$. つまり, $1 \leq X - a \leq min(X, N) \Leftrightarrow X - min(X - 1, N) \leq a \leq X - 1 \Leftrightarrow max(1, X - N) \leq a \leq X - 1 \cdots \text{⑥}$
+- 結局, $\text{⑤} \cap \text{⑥} \Leftrightarrow max(1, X - N) \leq a \leq min(X-1, N)$の範囲に含まれる整数$a$の数が, $(a, b)$の組の個数となる. 
 - $c + d = Y$を満たす整数$(c, d)$の組についても同様に求めることができる. 
 
 

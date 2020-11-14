@@ -126,7 +126,7 @@ print(-ans)
 最近のE問題の中では簡単だった.
 方針は以下.
 
-- $pairwise\ coprime \Leftrightarrow A_iの素因数に重複がない$ である.
+- $pairwise\ coprime \Leftrightarrow A_i\text{の素因数に重複がない}$ である.
 - よって, 各$A_i$を順に素因数分解して重複がないかチェックする. 
 - 通常の素因数分解では$\mathcal{O}(\sqrt{A})$のため間に合わないが, 高速素因数分解と呼ばれる手法により$\mathcal{O}(\log A)$まで計算量を落とすことができる. Ref: [エラトステネスの篩に基づく高速な素因数分解](https://qiita.com/rsk0315_h4x/items/ff3b542a4468679fb409)
 
