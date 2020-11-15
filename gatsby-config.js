@@ -124,12 +124,6 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-74763445-2",
-      },
-    },
-    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `

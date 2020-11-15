@@ -13,6 +13,18 @@ export default function HTML(props) {
         />
         {props.headComponents}
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"></link>
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-336YP0XSBD"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-336YP0XSBD');
+          `
+        }}/>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
@@ -22,7 +34,6 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </body>
     </html>
   )
