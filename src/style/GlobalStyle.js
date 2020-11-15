@@ -81,11 +81,11 @@ function setColor() {
 #  font setting
 =============================================== */
 const font = css`
-  // font-family: -apple-system, system-ui, "Helvetica Neue", "Segoe UI",
-  //   "Hiragino Kaku Gothic ProN", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", Arial,
-  //   メイリオ, Meiryo, sans-serif;
-  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 
-       'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-family: -apple-system, system-ui, "Helvetica Neue", "Segoe UI",
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", Arial,
+    メイリオ, Meiryo, sans-serif;
+  // font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 
+  //      'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   word-wrap: break-word;
   word-break: break-all;
   -moz-font-feature-settings: "palt";
