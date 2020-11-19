@@ -39,7 +39,6 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
             <Tags tags={post.frontmatter.tags} />
           </div>
           <TOC data={data.markdownRemark.tableOfContents} />
-          <AdsenseAuto/>
           {/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
           <section>{renderAst(post.htmlAst)}</section>
           <Share
