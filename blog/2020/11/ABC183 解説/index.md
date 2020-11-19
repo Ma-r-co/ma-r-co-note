@@ -142,7 +142,7 @@ print(dp[-1][-1])
 - $UnionFind$木を以下のように実装する。
 - 親ノードは`collections.Counter`を保持する。この$Counter$で当該グループの$\text{クラス: 所属人数}$のペアを管理する。
 - 子ノードは親ノードのノード番号を保持する（通常の$UnionFind$木と同じ）
-- グループ同士の結合の処理(`UnionFind.union()`)では、$Counter$の項目数($len(Counter.keys())$)を比較し**小さい方を大きい方に結合させる**（通常の$UnionFind$木の逆。通常は*大きい方を小さい方に結合させる*。)
+- グループ同士の結合の処理(`UnionFind.union()`)では、$Counter$の項目数($len(Counter)$)を比較し**小さい方を大きい方に結合させる**（通常の$UnionFind$木の逆。通常は*大きい方を小さい方に結合させる*。)
 
 結局これだけ？楽勝じゃん！っと思ったが、`union()`の実装でハマった。。。  
 みなさんは以下の方法1~3のうちどれが計算量が少ないかわかるだろうか？  
@@ -161,7 +161,7 @@ for k, v in B.items():
 # 方法3
 A.update(B)
 ```
-なんと、**方法1**は$\mathcal{O}(len(A.keys()) + len(B.keys()))$, 他の方法では$\mathcal{O}(len(B.keys()))$なのである！(今回の経験からの個人的推測)  
+なんと、**方法1**は$\mathcal{O}(max(len(A), len(B)))$, 他の方法では$\mathcal{O}(len(B))$なのである！(今回の経験からの個人的推測)  
 
 
 というわけで今回のlessons learnedは, 
@@ -196,7 +196,7 @@ class UnionFind():
             return
 
         # 項目数が小さい方を大きい方に結合する
-        if len(self.parents[x].keys()) < len(self.parents[y].keys()):
+        if len(self.parents[x]) < len(self.parents[y]):
             x, y = y, x
         # update()を使う！！！ 超重要！！！
         self.parents[x].update(self.parents[y])
