@@ -1,7 +1,7 @@
 ---
 title: 【Python】ABC181 解説
 date: 2020-11-01T00:00:00.000Z
-description: AtCoder Regular Contest 181(ABC181)のPythonによる解答・解説を載せます.
+description: AtCoder Regular Contest 181(ABC181)に参加しました。 結果はA~E5完384位パフォーマンス1756。久々のレートアップです。 A~F問題の解説およびPython解答例を掲載します.
 slug: abc-181-work-log
 tags: 
   - Python

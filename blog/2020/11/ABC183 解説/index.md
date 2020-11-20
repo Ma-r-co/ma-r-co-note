@@ -1,7 +1,7 @@
 ---
 title: 【Python】ABC183 解説
 date: 2020-11-15T00:00:00.000Z
-description: AtCoder Regular Contest 183(ABC183)のPythonによる解答・解説を載せます.
+description: AtCoder Regular Contest 183(ABC183)に参加しました。結果は5完893位パフォーマンス1485. A~F問題の解説およびPython解答例を掲載します。
 slug: abc-183-work-log
 tags: 
   - Python

@@ -1,7 +1,7 @@
 ---
 title: Gatsby - MarkdownページにAdSenseを挿入する方法
 date: 2020-11-11T00:00:00.000Z
-description: GatsbyのMarkdownで作成したページの途中にAdSenseを挿入する方法をご紹介。
+description: GatsbyのMarkdownで作成したページの途中にAdSenseを挿入する方法をご紹介。以前はGatsbyサイトにGoogle AdSenseを導入する方法を紹介しました。今回は、Markdownページの途中にAdsenSenseを挿入する方法を説明します。
 slug: how-to-insert-adsense-to-markdown
 tags: 
   - Gatsby

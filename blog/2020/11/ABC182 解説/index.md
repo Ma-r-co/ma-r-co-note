@@ -1,7 +1,7 @@
 ---
 title: 【Python】ABC182 解説
 date: 2020-11-08T00:00:00.000Z
-description: AtCoder Regular Contest 182(ABC182)のPythonによる解答・解説を載せます.
+description: AtCoder Regular Contest 182(ABC182)に参加しました. 結果はA~D4完2035位パフォーマンス1075. E問題にハマり, ダメダメでした. A~E問題の解説およびPython解答例を掲載します。
 slug: abc-182-work-log
 tags: 
   - Python

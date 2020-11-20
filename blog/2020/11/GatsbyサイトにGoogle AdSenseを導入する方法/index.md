@@ -1,7 +1,7 @@
 ---
 title: GatsbyサイトにGoogle AdSenseを導入する方法
 date: 2020-11-10T00:00:00.000Z
-description: このブログにGoogle Adsenseを導入したのでメモ。プラグインを使わない方法を紹介。
+description: 最近ブログにGoogleAdSenseを導入しました。ネット上の情報を頼りにいろいろと試してみましたが、プラグインがうまく動かず苦労しました。 四苦八苦した結果なんとか導入できたので、Gatsbyプラグイン無しでAdSenseを導入する方法を紹介します。
 slug: how-to-introduce-adsense-to-gatsby
 tags: 
   - Gatsby
