@@ -1,7 +1,7 @@
 ---
 title: 【Python】ABC184 解説
 date: 2020-11-22T00:00:00.000Z
-description: AtCoder Regular Contest 184(ABC184)に参加しました。結果は3完2106位パフォーマンス1096. 非常に残念な結果でした. A~F問題の解説およびPython解答例を掲載します。
+description: AtCoder Beginner Contest 184(ABC184)に参加しました。結果は3完2106位パフォーマンス1096. 非常に残念な結果でした. A~F問題の解説およびPython解答例を掲載します。
 slug: abc-184-work-log
 tags: 
   - Python

@@ -1,7 +1,7 @@
 ---
 title: 【Python】ABC185 解説
 date: 2020-12-13T00:00:00.000Z
-description: AtCoder Regular Contest 185(ABC185)に参加しました。結果は5完1227位パフォーマンス1356. A~F問題の解説およびPython解答例を掲載します。
+description: AtCoder Beginner Contest 185(ABC185)に参加しました。結果は5完1227位パフォーマンス1356. A~F問題の解説およびPython解答例を掲載します。
 slug: abc-185-work-log
 tags: 
   - Python
