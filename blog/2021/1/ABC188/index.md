@@ -177,7 +177,6 @@ $1$ずつ減らす: $Y - X$
 - $Y$が奇数の時は、下記の$3$通りのどれか。  
 $f(Y + 1)$ + 1  
 $f(Y - 1)$ + 1  
-$Y - X$  
 - 以上をメモ化再帰で実装する。
 
 ```python
@@ -193,8 +192,7 @@ def dfs(n):
         else:  # n　が奇数の時
             c1 = dfs(n + 1) + 1
             c2 = dfs(n - 1) + 1
-            c3 = n - X
-            ret = min(c1, c2, c3)
+            ret = min(c1, c2)
         memo[n] = ret
     return memo[n]
 
