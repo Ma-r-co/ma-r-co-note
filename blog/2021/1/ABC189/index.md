@@ -14,8 +14,9 @@ keywords: Python
 ABC188に参加しました. 結果は$3$完$2930$位パフォーマンス$942$....  
 泣きたい
 
-以下, A~E問題の解説およびPython解答例です.
+以下, A~F問題の解説およびPython解答例です.
 
+*2021/01/24 F問題の解説を追加*
 
 ## A - Slot 解説
 `set`の大きさで判定する。
@@ -197,8 +198,64 @@ for a, b in query:
 <adsense></adsense>
 
 ## F - Sugoroku2
-TBA
+解説AC。
 
+考え方は以下の通り。
+- $dp[i]: i\text{マス目からスタートした時のルーレットを回す回数の期待値}$ とおく。
+- 遷移は以下の式で表すことができる。  
+$dp[N] = 0$  
+$dp[i] = \begin{cases} \sum_{j=1}^M \frac{dp[i + j]}{M} + 1 & (\text{通常マス}) & \cdots \text{①} \\ dp[0] & (\text{振り出しマス}) & \cdots \text{②} \end{cases} $
+- ここで、$dp[0]$を求めるのに$dp[0]$の値が必要、という状態になり自己循環に陥ってしまう。
+- そこで、$dp[0] = x$ と置くと計算ができる。これは$\text{①}$の式が必ず$ax + b$ という$1$次式の形となるため、最終的に以下の方程式を解けばよいからである。  
+$\begin{aligned} & dp[0] &= ax + b \\ \Leftrightarrow & x &= ax + b \\ \Leftrightarrow & x &= \frac{b}{1 - a} \end{aligned}$
+- 「$x$と置く」って、どうやってコーディングするの？と疑問をもつかもしれないが、Pythonであれば$ax + b$の$a, b$をプロパティにもつクラスを作ればよい。  
+$ (a_1x + b_1) + (a_2x + b_2) \rightarrow　(a_1, b_1) + (a_2, b_2) = (a_1 + a_2, b_1 + b_2)  $
+
+
+```python
+class f():
+    '''
+    ax + b を表すクラス
+    和・差およびスカラー除算を定義する
+    '''
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def __add__(self, other):
+        return f(self.a + other.a, self.b + other.b)
+
+    def __sub__(self, other):
+        return f(self.a - other.a, self.b - other.b)
+    
+    def __truediv__(self, value):
+        return f(self.a / value, self.b / value)
+
+
+N, M, K = map(int, input().split())
+A = [0] * (N + 1)
+for a in map(int, input().split()):
+    A[a] = 1
+
+x = f(1, 0)     # 1 * x + 0
+zero = f(0, 0)  # 0 * x + 0
+one = f(0, 1)   # 0 * x + 1
+dp = [zero] * (N + M + 1)
+S = zero  # dp[i] + dp[i + 1] + ... + dp[i + M] の累積和
+for i in range(N - 1, -1, -1):
+    if A[i]:
+        dp[i] = x
+    else:
+        dp[i] = S / M + one
+    S += dp[i]
+    S -= dp[i + M]
+
+a, b = dp[0].a, dp[0].b
+if a + pow(10, -6) > 1:  # a == 1 のときはゴール不可。誤差を考慮して不等式で実装する。
+    print(-1)
+else:
+    print(b / (1 - a))
+```
 
 ## まとめ
 マジで落ち込む。。。
