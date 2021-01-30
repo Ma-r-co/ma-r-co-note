@@ -1,7 +1,7 @@
 ---
 title: 【Python】ABC189 解説
 date: 2021-01-23T00:00:00.000Z
-description: AtCoder Beginner Contest 189(ABC189)に参加しました。結果は3完2930位パフォーマンス942. A~E問題の解説およびPython解答例を掲載します。
+description: AtCoder Beginner Contest 189(ABC189)に参加しました。結果は3完2930位パフォーマンス942. A~F問題の解説およびPython解答例を掲載します。
 slug: abc-189-work-log
 tags: 
   - Python
@@ -11,14 +11,14 @@ tags:
 keywords: Python
 ---
 
-ABC188に参加しました. 結果は$3$完$2930$位パフォーマンス$942$....  
+ABC189に参加しました. 結果は$3$完$2930$位パフォーマンス$942$....  
 泣きたい
 
 以下, A~F問題の解説およびPython解答例です.
 
 *2021/01/24 F問題の解説を追加*
 
-## A - Slot 解説
+## A - Slot
 `set`の大きさで判定する。
 
 
