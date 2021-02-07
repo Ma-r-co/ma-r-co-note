@@ -18,6 +18,8 @@ ABC191に参加しました. 結果は$5$完$276$位パフォーマンス$2106$!
 
 以下, A~E問題の解説およびPython解答例です.
 
+*2021/02/07: F問題の解説を追加*
+
 
 <adsense></adsense>
 
@@ -208,7 +210,46 @@ print(*ans, sep='\n')
 <adsense></adsense>
 
 ## F - GCD or MIN
-TBA
+解説AC。  
+考察が難しくて実装が軽い問題。  
+
+考え方は以下。
+- まず、$gcd(x, y) \leq min(x, y)$より、黒板に残る数は$min(A_i)$以下である。  
+$\text{黒板に残る整数} \leq min(A_i) \cdots \text{①}$  
+- また、$gcd$により生成される数しか候補にならないため、$A$の部分集合の$gcd$が候補となる。  
+$\text{黒板に残る整数} \in gcd(\{A\text{の部分集合}\}) \cdots \text{②}$
+- よって、黒板に残る整数の候補は各$A_i$の約数のみである。
+- そして、ある整数$X$が②を満たすかどうかは以下の条件により$\mathcal{O}(N)$で判定できる。
+$\begin{aligned} & X = gcd(\{A\text{の部分集合}\}) \\ \Leftrightarrow & gcd(\{A_i|A_i \% X = 0\}) = X \cdots \text{③}　\end{aligned}$
+- したがって、各$A_i$の約数$X$をすべて求め、その中で①および③を満たすものを数え上げれば良い。
+
+
+```python
+from math import gcd
+from collections import defaultdict
+
+
+N = int(input())
+A = list(map(int, input().split()))
+minA = min(A)
+
+# G[x]: xを約数にもつAiの総gcdを保持する。
+# gcd(0, a) = a を利用するためdefaultdictを使う。
+G = defaultdict(int)  
+
+for a in A:
+    for i in range(1, minA + 1): # aの約数をすべて求める
+        if i ** 2 > a:
+            break
+        if a % i == 0:  # iが約数のとき, G[i] <- gcd(G[i], a) とする。
+            j = a // i
+            G[i] = gcd(G[i], a)
+            G[j] = gcd(G[j], a)
+
+# gcd[{Ai| Ai % X == 0}] == X かつ X <= min(A) を満たすXの個数をカウント
+ans = sum((k == v and k <= minA) for k, v in G.items())  
+print(ans)
+```
 
 ## まとめ
 順位が良くて嬉しい！
