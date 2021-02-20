@@ -1,7 +1,7 @@
 ---
 title: 【Python】ABC191 解説
 date: 2021-02-06T00:00:00.000Z
-description: AtCoder Beginner Contest 191(ABC191)に参加しました。結果は5完276位パフォーマンス2106. A~E問題の解説およびPython解答例を掲載します。
+description: AtCoder Beginner Contest 191(ABC191)に参加しました。結果は5完276位パフォーマンス2106. A~F問題の解説およびPython解答例を掲載します。
 slug: abc-191-work-log
 tags: 
   - Python
@@ -16,7 +16,7 @@ ABC191に参加しました. 結果は$5$完$276$位パフォーマンス$2106$!
 
 ![ABC191_ranking](ABC191_ranking.png)
 
-以下, A~E問題の解説およびPython解答例です.
+以下, A~F問題の解説およびPython解答例です.
 
 *2021/02/07: F問題の解説を追加*
 
