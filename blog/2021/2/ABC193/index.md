@@ -1,6 +1,6 @@
 ---
 title: 【Python】キャディプログラミングコンテスト2021(ABC193) 解説
-date: 2021-02-20T00:00:00.000Z
+date: 2021-02-27T00:00:00.000Z
 description: キャディプログラミングコンテスト2021(AtCoder Beginner Contest 193, ABC193)に参加しました。結果は4完1237位パフォーマンス1388. A~E問題の解説およびPython解答例を掲載します。
 slug: abc-193-work-log
 tags: 
