@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Blog from "../components/blog"
 import Polygon from "../components/polygon"
 import {AdsenseAuto} from "../components/googleAdsense"
@@ -65,7 +65,7 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout location={location}>
-      <SEO title={siteTitle} description={siteDescription} />
+      <Seo title={siteTitle} description={siteDescription} />
       <Polygon
         height="370px"
         background="linear-gradient(45deg, #2B7A78 0%, #17252A 74%)"

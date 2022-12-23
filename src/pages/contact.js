@@ -3,7 +3,7 @@ import { navigate } from 'gatsby';
 import Recaptcha from 'react-google-recaptcha';
 import styled from "styled-components";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import { MdPerson, MdEmail } from "react-icons/md";
 import { useSiteMetadata } from "../components/queries";
 
@@ -128,7 +128,7 @@ const ContactPage = (props, location) => {
 
   return (
     <Layout location={location} title="contact">
-      <SEO title="お問合せ" noindex />
+      <Seo title="お問合せ" noindex />
       <Wrapper className='inner'>
         <h1>お問合せ</h1>
         <form

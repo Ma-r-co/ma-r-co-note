@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from 'gatsby'
 import styled from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const Wrapper = styled.div`
   width: var(--width);
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 const Disclaimer = ({ location }) => {
   return (
     <Layout location={location} >
-      <SEO title="免責事項" noindex />
+      <Seo title="免責事項" noindex />
       <Wrapper className='inner'>
         <h1>免責事項</h1>
         <p>marco-note.net(以下当ブログ)で掲載している画像の著作権・肖像権等は各権利所有者に帰属致します。権利を侵害する目的ではございません。記事の内容や掲載画像等に問題がございましたら、各権利所有者様本人が<Link to='/contact'>お問合せフォーム</Link>よりご連絡下さい。確認後、対応させて頂きます。</p>

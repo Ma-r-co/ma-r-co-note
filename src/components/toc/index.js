@@ -84,7 +84,7 @@ const Wrapper = styled.div`
   }
 `
 
-const TOC = props => {
+const Toc = props => {
   const [open, switchOpen] = useState(false)
   return (
     <Wrapper className="mokuji-wrapper">
@@ -109,4 +109,4 @@ const TOC = props => {
   )
 }
 
-export default TOC
+export default Toc

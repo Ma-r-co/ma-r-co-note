@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const Wrapper = styled.div`
   width: var(--width);
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 const PrivacyPolicy = ({ location }) => {
   return (
     <Layout location={location} >
-      <SEO title="プライバシーポリシー" noindex />
+      <Seo title="プライバシーポリシー" noindex />
       <Wrapper className='inner'>
         <h1>プライバシーポリシー</h1>
         <h2>1. 個人情報の利用目的</h2>

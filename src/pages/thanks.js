@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const Wrapper = styled.div`
   width: var(--width);
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
 const ThanksPage = (props, location) => (
   <Layout location={location} title="thanks">
-    <SEO title="thanks" noindex />
+    <Seo title="thanks" noindex />
     <Wrapper>
       <h1>Thanks!</h1>
       <p>お問い合せを受け付けました. ありがとうございます.</p>

@@ -2,7 +2,7 @@ import React from "react"
 import { FaHashtag } from "react-icons/fa"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import Blog from "../../components/blog"
 import Wrapper from "./style"
 
@@ -11,7 +11,7 @@ const TagPageTemplate = ({ data, location, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout location={location}>
-      <SEO
+      <Seo
         title={`タグ: ${tagName}`}
         description={`${tagName}タグを含む記事の一覧ページです`}
         noindex

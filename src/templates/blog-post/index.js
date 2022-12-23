@@ -2,11 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import rehypeReact from 'rehype-react'
 import Layout from "../../components/layout"
-import SEO from "../../components/seo"
+import Seo from "../../components/seo"
 import { Tags } from "../../components/modules"
 import Paging from "../../components/paging-single"
 import Share from "../../components/share"
-import TOC from "../../components/toc"
+import Toc from "../../components/toc"
 import Related, { Latest } from "../../components/related"
 import Wrapper from "./style"
 import {AdsenseAuto, AdsenseHori} from "../../components/googleAdsense"
@@ -27,7 +27,7 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
   const { previous, next } = pageContext
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
+      <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
@@ -38,7 +38,7 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
             <h1>{post.frontmatter.title}</h1>
             <Tags tags={post.frontmatter.tags} />
           </div>
-          <TOC data={data.markdownRemark.tableOfContents} />
+          <Toc data={data.markdownRemark.tableOfContents} />
           {/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
           <section>{renderAst(post.htmlAst)}</section>
           <Share

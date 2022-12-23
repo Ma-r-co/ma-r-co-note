@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const Wrapper = styled.div`
   width: var(--width);
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
 const NotFoundPage = (props, location) => (
   <Layout location={location} title="NOT FOUND">
-    <SEO title="NOT FOUND" noindex />
+    <Seo title="NOT FOUND" noindex />
     <Wrapper>
       <h1>NOT FOUND</h1>
       <p>ページが見つかりませんでした</p>

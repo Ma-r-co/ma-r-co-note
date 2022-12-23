@@ -1,5 +1,5 @@
 /**
- * SEO component that queries for data with
+ * Seo component that queries for data with
  *  Gatsby's useStaticQuery React hook
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import icon from "../../images/moai_icon_grayed.png"
 
-function SEO({
+function Seo({
   description,
   lang,
   url,
@@ -122,7 +122,7 @@ function SEO({
   )
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `ja`,
   meta: [],
   keywords: [],
@@ -132,7 +132,7 @@ SEO.defaultProps = {
   noindex: false,
 }
 
-SEO.propTypes = {
+Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
@@ -143,4 +143,4 @@ SEO.propTypes = {
   noindex: PropTypes.bool,
 }
 
-export default SEO;
+export default Seo;
