@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const delay = props => {
   return keyframes`
@@ -30,16 +30,16 @@ const Style = styled.div`
     animation: 0.4s ${delay(1)} linear 0s forwards;
     position: relative;
     z-index: 1;
-    .gatsby-image-wrapper {
-      width: 100vw;
-      height: 100%;
-      img {
-        width: 100vw;
-        height: 100%;
-        object-fit: cover;
-        position: relative;
-      }
-    }
+    // .gatsby-image-wrapper {
+    //   width: 100vw;
+    //   height: 100%;
+    //   img {
+    //     width: 100vw;
+    //     height: 100%;
+    //     object-fit: cover;
+    //     position: relative;
+    //   }
+    // }
     &:after {
       width: 100%;
       height: 100%;
@@ -78,9 +78,7 @@ const Polygon = props => {
       }
       backgroundImage: file(absolutePath: { regex: "/math_on_whiteboard.jpg/" }) {
         childImageSharp {
-          fluid(maxWidth: 2000) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
@@ -93,10 +91,9 @@ const Polygon = props => {
       background={props.background}
     >
       <div id="bg">
-        <Image
-          fluid={data.backgroundImage.childImageSharp.fluid}
-          style={{ width: "100%", height: "400px" }}
-          objectFit="cover"
+        <GatsbyImage
+          image={data.backgroundImage.childImageSharp.gatsbyImageData}
+          alt='math on whiteboard'
         />
       </div>
     </Style>

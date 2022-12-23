@@ -3,7 +3,7 @@ import { StaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import { FaGithub, FaTwitter, FaRss, FaSitemap } from "react-icons/fa"
 import { useSiteMetadata } from "../queries"
-import Img from "gatsby-image"
+import {GatsbyImage} from "gatsby-plugin-image"
 
 const Wrapper = styled.footer`
   position: absolute;
@@ -76,11 +76,12 @@ const Feedly = () => {
               fixed(width: 22, height: 22) {
                 ...GatsbyImageSharpFixed
               }
+              gatsbyImageData(layout: FIXED, width: 22, height:22)
             }
           }
         }
       `}
-      render={data => <Img fixed={data.avatar.childImageSharp.fixed} />}
+      render={data => <GatsbyImage image={data.avatar.childImageSharp.gatsbyImageData} alt='feedly logo' />}
     />
   )
 }

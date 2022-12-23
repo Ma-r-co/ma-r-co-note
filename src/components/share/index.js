@@ -5,7 +5,7 @@ import { FaTwitter, FaGetPocket, FaFacebookSquare } from "react-icons/fa"
 import { StaticQuery, graphql } from "gatsby"
 import { colors } from "../../style/GlobalStyle"
 import { rgba } from "polished"
-import Img from "gatsby-image"
+import { GatsbyImage} from "gatsby-plugin-image"
 import { useSiteMetadata } from "../queries"
 
 const Wrapper = styled.div`
@@ -77,14 +77,12 @@ const Share = props => {
         query AuthorQuery {
           avatar: file(absolutePath: { regex: "/moai_icon_grayed.png/" }) {
             childImageSharp {
-              fixed(width: 40, height: 40) {
-                ...GatsbyImageSharpFixed
-              }
+              gatsbyImageData(layout: FIXED, width: 40, height:40)
             }
           }
         }
       `}
-      render={data => <Img fixed={data.avatar.childImageSharp.fixed} />}
+      render={data => <GatsbyImage image={data.avatar.childImageSharp.gatsbyImageData} alt='share moai' />}
     />
   )
   return (

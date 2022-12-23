@@ -10,7 +10,7 @@ const SearchResult = props => {
   const tempData = useStaticQuery(graphql`
     query SearchData {
       allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: {frontmatter: { date: DESC} },
         limit: 1000
       ) {
         edges {
