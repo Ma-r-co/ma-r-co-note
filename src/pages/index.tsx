@@ -1,11 +1,11 @@
-import React from "react"
-import styled from "styled-components"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Blog from "../components/blog"
-import Polygon from "../components/polygon"
-import {AdsenseAuto} from "../components/googleAdsense"
+import React from "react";
+import styled from "styled-components";
+import { graphql, PageProps } from "gatsby";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import Blog from "../components/blog";
+import Polygon from "../components/polygon";
+import { AdsenseAuto } from "../components/googleAdsense";
 // import Image from "gatsby-image"
 
 /* ===============================================
@@ -57,15 +57,18 @@ const Wrapper = styled.div`
   @media screen and (max-width: 780px) {
     margin-bottom: 40px;
   }
-`
+`;
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const siteDescription = data.site.siteMetadata.description
-  const posts = data.allMarkdownRemark.edges
+interface BlogIndexProps {
+  data: Queries.BlogIndexQuery;
+  location: PageProps["location"];
+}
+
+const BlogIndex: React.FC<BlogIndexProps> = ({ data, location }) => {
+  const posts = data.allMarkdownRemark.edges;
+  const { title, description } = data.site!.siteMetadata!;
   return (
     <Layout location={location}>
-      <Seo title={siteTitle} description={siteDescription} />
       <Polygon
         height="370px"
         background="linear-gradient(45deg, #2B7A78 0%, #17252A 74%)"
@@ -73,40 +76,49 @@ const BlogIndex = ({ data, location }) => {
       <Wrapper>
         <div className="message">
           {/* <Image fixed={data.avatar.childImageSharp.fixed} alt="author" /> */}
-          <h1>{data.site.siteMetadata.title}</h1>
-          <p>{data.site.siteMetadata.description}</p>
+          <h1>{title}</h1>
+          <p>{description}</p>
         </div>
         <div className="inner">
           <div>
-            <AdsenseAuto/>
+            <AdsenseAuto />
           </div>
           {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
             return (
               <Blog
-                title={title}
-                key={node.fields.slug}
-                slug={`/${node.frontmatter.slug}/`}
-                date={node.frontmatter.date}
-                description={node.frontmatter.description}
-                excerpt={node.excerpt}
-                tags={node.frontmatter.tags}
+                title={node.frontmatter?.title || location.toString()}
+                key={node.fields?.slug}
+                slug={`/${node.frontmatter?.slug}/`}
+                date={node.frontmatter?.date || "2000-01-01"}
+                description={node.frontmatter?.description}
+                excerpt={node.excerpt || ""}
+                tags={
+                  node.frontmatter?.tags
+                    ? Array.from(node.frontmatter.tags)
+                    : []
+                }
               />
-            )
+            );
           })}
           <div>
-            <AdsenseAuto/>
+            <AdsenseAuto />
           </div>
         </div>
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
+
+interface HeadProps {}
+
+export const Head: React.FC<HeadProps> = () => {
+  return <Seo />;
+};
 
 export const pageQuery = graphql`
-  query {
+  query BlogIndex {
     site {
       siteMetadata {
         title
@@ -120,10 +132,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      sort: { frontmatter: { date: DESC }},
-      limit: 1000
-    ) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, limit: 1000) {
       edges {
         node {
           excerpt
@@ -141,4 +150,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

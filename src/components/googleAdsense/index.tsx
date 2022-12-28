@@ -3,7 +3,7 @@ import { useSiteMetadata } from "../queries";
 import { PageProps } from "gatsby";
 
 interface AdsenseAutoProps {
-  currentPath: string;
+  currentPath?: string;
 }
 
 export const AdsenseAuto: React.FC<AdsenseAutoProps> = (props) => {

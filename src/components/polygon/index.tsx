@@ -15,9 +15,9 @@ const delay = (opacity: number) => {
 };
 
 interface PolygonStyleProps {
-  background: string;
-  width: string;
-  height: string;
+  background?: string;
+  width?: string;
+  height?: string;
 }
 
 const Style = styled.div<PolygonStyleProps>`
@@ -74,10 +74,11 @@ const Style = styled.div<PolygonStyleProps>`
 `;
 
 interface PolygonProps {
-  width: string;
-  height: string;
-  background: string;
+  width?: string;
+  height?: string;
+  background?: string;
 }
+
 const Polygon: React.FC<PolygonProps> = (props) => {
   const data: Queries.BackgroundImageQuery = useStaticQuery(graphql`
     query BackgroundImage {

@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 #  Tags
 =============================================== */
 interface TagsProps {
-  tags: string[];
+  tags: (string | null)[];
 }
 export const Tags: React.FC<TagsProps> = (props) => {
   const tags =

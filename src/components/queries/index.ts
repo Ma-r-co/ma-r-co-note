@@ -8,6 +8,7 @@ export const useSiteMetadata = () => {
           siteMetadata {
             title
             description
+            image
             author
             siteUrl
             social {
@@ -24,5 +25,5 @@ export const useSiteMetadata = () => {
       }
     `
   );
-  return site?.siteMetadata;
+  return site!.siteMetadata!;
 };

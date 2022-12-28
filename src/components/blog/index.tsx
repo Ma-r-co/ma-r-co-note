@@ -53,12 +53,12 @@ const BlogWrapper = styled.article`
 #  Blog
 =============================================== */
 interface BlogProps {
-  description?: string;
+  description?: string | null;
   excerpt: string;
   slug: string;
   title: string;
   date: string;
-  tags: string[];
+  tags: (string | null)[];
 }
 
 const Blog: React.FC<BlogProps> = (props) => {
