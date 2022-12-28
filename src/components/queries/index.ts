@@ -1,9 +1,9 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
 
 export const useSiteMetadata = () => {
-  const { site } = useStaticQuery(
+  const { site }: Queries.SiteQuery = useStaticQuery(
     graphql`
-      query {
+      query Site {
         site {
           siteMetadata {
             title
@@ -18,11 +18,11 @@ export const useSiteMetadata = () => {
             adsense {
               clientKey
               slot1
-            },
+            }
           }
         }
       }
     `
-  )
-  return site.siteMetadata
-}
+  );
+  return site?.siteMetadata;
+};

@@ -1,29 +1,49 @@
-import { css, createGlobalStyle, keyframes } from "styled-components"
-import { rgba } from "polished"
+import { css, createGlobalStyle, keyframes } from "styled-components";
+import { rgba } from "polished";
 
 /* ===============================================
 #  color setting
 =============================================== */
-export const colors = {}
+type Colors = {
+  background: string;
+  text: string;
 
-colors.background = "#feffff"
-colors.text = "#17252A"
+  paleGray: string;
+  lightGray: string;
+  gray: string;
+  primaryGray: string;
 
-colors.paleGray = "#f9f9f9"
-colors.lightGray = "#ddd"
-colors.gray = "#96acb3"
-colors.primaryGray = "#627E8C"
+  primaryPurple: string;
+  primary: string;
+  primaryLight: string;
+  primaryPale: string;
 
-colors.primaryPurple = "#2B7A78"
-colors.primary = "#3AAFA9"
-colors.primaryLight = rgba("#3AAFA9", 0.15)
-colors.primaryPale = rgba("#3AAFA9", 0.07)
+  secondary: string;
+  danger: string;
+  success: string;
+  warn: string;
+  info: string;
+};
+export const colors: Colors = {
+  background: "#feffff",
+  text: "#17252A",
 
-colors.secondary = "#2B7A78"
-colors.danger = "#FF5C55"
-colors.success = "#4FCE7A"
-colors.warn = "#feaa2e"
-colors.info = "#2490eb"
+  paleGray: "#f9f9f9",
+  lightGray: "#ddd",
+  gray: "#96acb3",
+  primaryGray: "#627E8C",
+
+  primaryPurple: "#2B7A78",
+  primary: "#3AAFA9",
+  primaryLight: rgba("#3AAFA9", 0.15),
+  primaryPale: rgba("#3AAFA9", 0.07),
+
+  secondary: "#2B7A78",
+  danger: "#FF5C55",
+  success: "#4FCE7A",
+  warn: "#feaa2e",
+  info: "#2490eb",
+};
 
 /* ===============================================
 #  other variables
@@ -40,7 +60,7 @@ export const fadeIn = keyframes`
     visibility: visible;
     transform: translateY(0);
   }
-`
+`;
 
 export const fadeOut = keyframes`
   0% {
@@ -53,20 +73,21 @@ export const fadeOut = keyframes`
     visibility: hidden;
     transform: translateY(-10px);
   }
-`
+`;
 
 export const size = {
   width: "800px",
   topHeight: "370px",
-}
+};
 
 /* ===============================================
 #  set css variables
 =============================================== */
 function setColor() {
-  let styles = ""
-  for (const key in colors) {
-    styles += `--${key}: ${colors[key]};`
+  let styles = "";
+  let key: keyof Colors;
+  for (key in colors) {
+    styles += `--${key}: ${colors[key]};`;
   }
   return css`
     :root {
@@ -74,7 +95,7 @@ function setColor() {
       --width: ${size.width};
       --topHeight: ${size.topHeight};
     }
-  `
+  `;
 }
 
 /* ===============================================
@@ -84,7 +105,7 @@ const font = css`
   font-family: -apple-system, system-ui, "Helvetica Neue", "Segoe UI",
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", Arial,
     メイリオ, Meiryo, sans-serif;
-  // font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 
+  // font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN',
   //      'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   word-wrap: break-word;
   word-break: break-all;
@@ -100,7 +121,7 @@ const font = css`
   letter-spacing: 0.05rem;
   font-weight: 400;
   color: var(--text);
-`
+`;
 
 /* ===============================================
 #  global style
@@ -184,6 +205,6 @@ const GlobalStyle = createGlobalStyle`
       display: none !important;
     }
   }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

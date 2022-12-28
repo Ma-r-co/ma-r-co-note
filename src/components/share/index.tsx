@@ -1,12 +1,12 @@
-import React from "react"
-import styled from "styled-components"
-import Button from "./button"
-import { FaTwitter, FaGetPocket, FaFacebookSquare } from "react-icons/fa"
-import { StaticQuery, graphql } from "gatsby"
-import { colors } from "../../style/GlobalStyle"
-import { rgba } from "polished"
-import { GatsbyImage} from "gatsby-plugin-image"
-import { useSiteMetadata } from "../queries"
+import React from "react";
+import styled from "styled-components";
+import Button from "./button";
+import { FaTwitter, FaGetPocket, FaFacebookSquare } from "react-icons/fa";
+import { StaticQuery, graphql } from "gatsby";
+import { colors } from "../../style/GlobalStyle";
+import { rgba } from "polished";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { useSiteMetadata } from "../queries";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -67,24 +67,34 @@ const Wrapper = styled.div`
       padding: 0 20px 0 10px;
     }
   }
-`
+`;
 
-const Share = props => {
-  const { author } = useSiteMetadata()
+interface ShareProps {
+  url: string;
+  title: string;
+}
+
+const Share: React.FC<ShareProps> = (props) => {
+  const author = useSiteMetadata()?.author!;
   const data = (
     <StaticQuery
       query={graphql`
         query AuthorQuery {
           avatar: file(absolutePath: { regex: "/moai_icon_grayed.png/" }) {
             childImageSharp {
-              gatsbyImageData(layout: FIXED, width: 40, height:40)
+              gatsbyImageData(layout: FIXED, width: 40, height: 40)
             }
           }
         }
       `}
-      render={data => <GatsbyImage image={data.avatar.childImageSharp.gatsbyImageData} alt='share moai' />}
+      render={(data) => (
+        <GatsbyImage
+          image={data.avatar.childImageSharp.gatsbyImageData}
+          alt="share moai"
+        />
+      )}
     />
-  )
+  );
   return (
     <Wrapper>
       <span className="share-header">
@@ -117,7 +127,7 @@ const Share = props => {
         </Button>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Share
+export default Share;

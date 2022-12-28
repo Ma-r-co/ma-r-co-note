@@ -1,30 +1,60 @@
 /**
- * SEO component that queries for data with
+ * Seo component that queries for data with
  *  Gatsby's useStaticQuery React hook
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import icon from "../../images/moai_icon_grayed.png"
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
+import icon from "../../images/moai_icon_grayed.png";
 
-function SEO({
-  description,
-  lang,
-  url,
-  meta,
-  keywords,
-  title,
-  image,
-  type,
-  noindex,
-}) {
-  const { site } = useStaticQuery(
+interface SeoProps {
+  description: string;
+  lang: string;
+  url?: string;
+  meta: (
+    | { name: string; content: string | null | undefined; property?: undefined }
+    | {
+        property: string;
+        content: string | null | undefined;
+        name?: undefined;
+      }
+  )[];
+  keywords: string[];
+  title?: string;
+  image: string;
+  type: string;
+  noindex: boolean;
+}
+
+const defaultProps: SeoProps = {
+  description: ``,
+  lang: `ja`,
+  meta: [],
+  keywords: [],
+  image: icon,
+  type: `article`,
+  noindex: false,
+};
+
+const Seo: React.FC<SeoProps> = (props = defaultProps) => {
+  const {
+    description,
+    lang,
+    url,
+    meta,
+    keywords,
+    title,
+    image,
+    type,
+    noindex,
+  } = props;
+  const { site }: Queries.SeoQuery = useStaticQuery(
     graphql`
-      query {
+      query Seo {
         site {
           siteMetadata {
             title
@@ -35,10 +65,10 @@ function SEO({
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
-  const index = noindex ? `noindex follow` : `index, follow`
+  const metaDescription = description || site?.siteMetadata?.description;
+  const index = noindex ? `noindex follow` : `index, follow`;
 
   return (
     <Helmet
@@ -57,8 +87,7 @@ function SEO({
         },
         {
           name: `google-site-verification`,
-          content: 
-          `VlqJHuoT2MVEQTHfsITxNCg6bOLvmXMQnCxegBEQ3rk`,
+          content: `VlqJHuoT2MVEQTHfsITxNCg6bOLvmXMQnCxegBEQ3rk`,
         },
         {
           name: `description`,
@@ -86,7 +115,7 @@ function SEO({
         },
         {
           property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}${image}`,
+          content: `${site?.siteMetadata?.siteUrl}${image}`,
         },
         {
           name: `twitter:card`,
@@ -94,11 +123,11 @@ function SEO({
         },
         {
           name: `twitter:site`,
-          content: `@${site.siteMetadata.author}`,
+          content: `@${site?.siteMetadata?.author}`,
         },
         {
           name: `twitter:creator`,
-          content: `@${site.siteMetadata.author}`,
+          content: `@${site?.siteMetadata?.author}`,
         },
         {
           name: `twitter:title`,
@@ -119,28 +148,7 @@ function SEO({
         )
         .concat(meta)}
     />
-  )
-}
+  );
+};
 
-SEO.defaultProps = {
-  lang: `ja`,
-  meta: [],
-  keywords: [],
-  description: ``,
-  image: icon,
-  type: `article`,
-  noindex: false,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string,
-  type: PropTypes.string,
-  noindex: PropTypes.bool,
-}
-
-export default SEO;
+export default Seo;

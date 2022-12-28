@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
-import { rgba } from "polished"
-import { Tags, PublishDate } from "../../components/modules"
-import { colors } from "../../style/GlobalStyle"
+import React from "react";
+import styled from "styled-components";
+import { Link, PageProps } from "gatsby";
+import { rgba } from "polished";
+import { Tags, PublishDate } from "../modules";
+import { colors } from "../../style/GlobalStyle";
 
 /* ===============================================
 #  style
@@ -48,14 +48,23 @@ const BlogWrapper = styled.article`
       }
     }
   }
-`
+`;
 /* ===============================================
 #  Blog
 =============================================== */
-const Blog = props => {
-  let content = props.description || props.excerpt
+interface BlogProps {
+  description?: string;
+  excerpt: string;
+  slug: string;
+  title: string;
+  date: string;
+  tags: string[];
+}
+
+const Blog: React.FC<BlogProps> = (props) => {
+  let content = props.description || props.excerpt;
   if (content.length >= 105) {
-    content = `${content.substr(0, 105)}...`
+    content = `${content.substr(0, 105)}...`;
   }
   return (
     <BlogWrapper key={props.slug}>
@@ -76,7 +85,7 @@ const Blog = props => {
         <Tags tags={props.tags} />
       </div>
     </BlogWrapper>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;

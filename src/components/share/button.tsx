@@ -1,6 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { rgba } from "polished"
+import React from "react";
+import styled from "styled-components";
+import { rgba } from "polished";
+import { PageProps } from "gatsby";
 
 const Wrapper = styled.div`
   background: #cccccc;
@@ -34,26 +35,26 @@ const Wrapper = styled.div`
     }
   }
   &.twitter {
-    background: linear-gradient(0deg, #3AAFA9, ${rgba("#3AAFA9", 0.7)});
-    text-shadow: 0 1px 1px #3AAFA9;
+    background: linear-gradient(0deg, #3aafa9, ${rgba("#3AAFA9", 0.7)});
+    text-shadow: 0 1px 1px #3aafa9;
     // box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
     //   0 2px 10px -1px ${rgba("#3AAFA9", 0.6)};
   }
   &.facebook {
-    background: linear-gradient(0deg, #3AAFA9, ${rgba("#3AAFA9", 0.8)});
-    text-shadow: 0 1px 1px #3AAFA9;
+    background: linear-gradient(0deg, #3aafa9, ${rgba("#3AAFA9", 0.8)});
+    text-shadow: 0 1px 1px #3aafa9;
     // box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
     //   0 2px 10px -1px ${rgba("#3AAFA9", 0.6)};
   }
   &.hatena {
-    background: linear-gradient(0deg, #3AAFA9, ${rgba("#3AAFA9", 0.8)});
-    text-shadow: 0 1px 1px #3AAFA9;
+    background: linear-gradient(0deg, #3aafa9, ${rgba("#3AAFA9", 0.8)});
+    text-shadow: 0 1px 1px #3aafa9;
     // box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
     //   0 2px 10px -1px ${rgba("#3AAFA9", 0.6)};
   }
   &.pocket {
-    background: linear-gradient(0deg, #3AAFA9, ${rgba("#3AAFA9", 0.7)});
-    text-shadow: 0 1px 1px #3AAFA9;
+    background: linear-gradient(0deg, #3aafa9, ${rgba("#3AAFA9", 0.7)});
+    text-shadow: 0 1px 1px #3aafa9;
     // box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.1),
     //   0 2px 10px -1px ${rgba("#3AAFA9", 0.6)};
   }
@@ -61,16 +62,22 @@ const Wrapper = styled.div`
     opacity: 1;
     box-shadow: none;
   }
-`
+`;
 
-const Button = props => {
+interface ButtonProps {
+  href: string;
+  className: string;
+  children: React.ReactNode;
+}
+
+const Button: React.FC<ButtonProps> = (props) => {
   return (
     <Wrapper className={props.className}>
       <a href={props.href} target="_blank" rel="noopener noreferrer">
         {props.children}
       </a>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

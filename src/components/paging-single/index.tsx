@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
-import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa"
+import React from "react";
+import styled from "styled-components";
+import { Link, PageProps } from "gatsby";
+import { FaAngleDoubleRight, FaAngleDoubleLeft } from "react-icons/fa";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -88,13 +88,23 @@ const Wrapper = styled.div`
       }
     }
   }
-`
+`;
+interface PagingProps {
+  prev: {
+    slug: string;
+    title: string;
+  };
+  next: {
+    slug: string;
+    title: string;
+  };
+}
 
-const Paging = props => {
+const Paging: React.FC<PagingProps> = (props) => {
   const isNextExit =
-    props.next.slug !== "" && props.next.title !== "" ? true : false
+    props.next.slug !== "" && props.next.title !== "" ? true : false;
   const isPrevExit =
-    props.prev.slug !== "" && props.prev.title !== "" ? true : false
+    props.prev.slug !== "" && props.prev.title !== "" ? true : false;
   return (
     <Wrapper className="paging">
       <div className="paging-item prev">
@@ -124,7 +134,7 @@ const Paging = props => {
         )}
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Paging
+export default Paging;

@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from "react"
-import Wrapper from "./style"
-import { Link } from "gatsby"
-import { FaCalendarAlt } from "react-icons/fa"
+import React, { useState, useEffect } from "react";
+import Wrapper from "./style";
+import { Link, PageProps } from "gatsby";
+import { FaCalendarAlt } from "react-icons/fa";
 
-export const Latest = props => {
+interface LatestProps {
+  latest: {
+    slug: string;
+    date: string;
+    title: string;
+  }[];
+}
+
+export const Latest: React.FC<LatestProps> = (props) => {
   return (
     <Wrapper>
       <div className="tab-header-wrapper">
@@ -12,7 +20,7 @@ export const Latest = props => {
       </div>
       <div className="tab-wrapper">
         <div className="tab-item">
-          {props.latest.map(e => {
+          {props.latest.map((e) => {
             return (
               <div key={`${e.slug}`} className="tab-post-item">
                 <span className="date">
@@ -23,34 +31,47 @@ export const Latest = props => {
                   <Link to={`/${e.slug}/`}>{e.title} </Link>
                 </span>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </Wrapper>
-  )
+  );
+};
+
+interface RelatedProps {
+  latest: {
+    slug: string;
+    date: string;
+    title: string;
+  }[];
+  related: {
+    slug: string;
+    date: string;
+    title: string;
+  }[];
 }
 
-const Related = props => {
-  const latestPosts = props.latest
-  const relatedPosts = props.related
-  const [isRelated, setIsRelated] = useState(true)
-  const [data, setData] = useState(relatedPosts)
+const Related: React.FC<RelatedProps> = (props) => {
+  const latestPosts = props.latest;
+  const relatedPosts = props.related;
+  const [isRelated, setIsRelated] = useState(true);
+  const [data, setData] = useState(relatedPosts);
 
   const related = () => {
-    setIsRelated(true)
-  }
+    setIsRelated(true);
+  };
   const latest = () => {
-    setIsRelated(false)
-  }
+    setIsRelated(false);
+  };
 
   useEffect(() => {
     if (isRelated) {
-      setData(relatedPosts)
+      setData(relatedPosts);
     } else {
-      setData(latestPosts)
+      setData(latestPosts);
     }
-  }, [isRelated, relatedPosts, latestPosts])
+  }, [isRelated, relatedPosts, latestPosts]);
 
   return (
     <Wrapper>
@@ -64,7 +85,7 @@ const Related = props => {
       </div>
       <div className="tab-wrapper">
         <div className="tab-item">
-          {data.map(e => {
+          {data.map((e) => {
             return (
               <div key={`${e.slug}`} className="tab-post-item">
                 <span className="date">
@@ -75,12 +96,12 @@ const Related = props => {
                   <Link to={`/${e.slug}/`}>{e.title} </Link>
                 </span>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Related
+export default Related;

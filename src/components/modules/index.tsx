@@ -1,11 +1,14 @@
-import React from "react"
-import styled from "styled-components"
-import _ from "lodash"
-import { rgba } from "polished"
-import { colors } from "../../style/GlobalStyle"
-import { Link } from "gatsby"
-import { FaHashtag, FaCalendarAlt } from "react-icons/fa"
+import React from "react";
+import styled from "styled-components";
+import _ from "lodash";
+import { rgba } from "polished";
+import { colors } from "../../style/GlobalStyle";
+import { Link } from "gatsby";
+import { FaHashtag, FaCalendarAlt } from "react-icons/fa";
 
+/* ===============================================
+#  style
+=============================================== */
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -46,30 +49,43 @@ const Wrapper = styled.div`
       margin-right: 10px;
     }
   }
-`
+`;
 
-export const Tags = props => {
+/* ===============================================
+#  Tags
+=============================================== */
+interface TagsProps {
+  tags: string[];
+}
+export const Tags: React.FC<TagsProps> = (props) => {
   const tags =
     props.tags.length !== 0 ? (
       <Wrapper className="tags">
         <FaHashtag />
-        {_.map(props.tags, e => (
+        {_.map(props.tags, (e) => (
           <Link to={`/tags/${e}/`} className="tag" key={e}>
             {e}
           </Link>
         ))}
       </Wrapper>
     ) : (
-      ""
-    )
-  return tags
+      <></>
+    );
+  return tags;
+};
+
+/* ===============================================
+#  PublishDate
+=============================================== */
+interface PublishDateProps {
+  date: string;
 }
 
-export const PublishDate = props => {
+export const PublishDate: React.FC<PublishDateProps> = (props) => {
   return (
     <Wrapper className="date">
       <FaCalendarAlt />
       <span>{props.date}</span>
     </Wrapper>
-  )
-}
+  );
+};

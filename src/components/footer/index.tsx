@@ -1,9 +1,9 @@
-import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
-import styled from "styled-components"
-import { FaGithub, FaTwitter, FaRss, FaSitemap } from "react-icons/fa"
-import { useSiteMetadata } from "../queries"
-import {GatsbyImage} from "gatsby-plugin-image"
+import React from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
+import styled from "styled-components";
+import { FaGithub, FaTwitter, FaRss, FaSitemap } from "react-icons/fa";
+import { useSiteMetadata } from "../queries";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Wrapper = styled.footer`
   position: absolute;
@@ -64,64 +64,62 @@ const Wrapper = styled.footer`
       }
     }
   }
-`
+`;
 
 const Feedly = () => {
   return (
     <StaticQuery
       query={graphql`
-        query FeedlyQuery {
-          avatar: file(absolutePath: { regex: "/feedly.png/" }) {
+        query FeedlyIcon {
+          feedlyIcon: file(absolutePath: { regex: "/feedly.png/" }) {
             childImageSharp {
-              fixed(width: 22, height: 22) {
-                ...GatsbyImageSharpFixed
-              }
-              gatsbyImageData(layout: FIXED, width: 22, height:22)
+              gatsbyImageData(layout: FIXED, width: 22, height: 22)
             }
           }
         }
       `}
-      render={data => <GatsbyImage image={data.avatar.childImageSharp.gatsbyImageData} alt='feedly logo' />}
+      render={(data: Queries.FeedlyIconQuery) => (
+        <GatsbyImage
+          image={data!.feedlyIcon!.childImageSharp!.gatsbyImageData}
+          alt="feedly logo"
+        />
+      )}
     />
-  )
-}
+  );
+};
 
 const Footer = () => {
-  const { author, social, siteUrl } = useSiteMetadata()
+  const { author, social, siteUrl } = { ...useSiteMetadata() };
   return (
     <Wrapper>
       <div className="upper-inner">
-        <Link to='/contact'>お問合せ</Link>
-        <Link to='/disclaimer'>免責事項</Link>
-        <Link to='/privacy-policy'>プライバシーポリシー</Link>
+        <Link to="/contact">お問合せ</Link>
+        <Link to="/disclaimer">免責事項</Link>
+        <Link to="/privacy-policy">プライバシーポリシー</Link>
         <div className="right">
-          {social.twitter !== ""
-            ? (
-              <a
-              href={`https://twitter.com/${social.twitter}`}
+          {social?.twitter !== "" ? (
+            <a
+              href={`https://twitter.com/${social?.twitter}`}
               target="_blank"
               rel="noopener noreferrer"
-              >
-                <FaTwitter />
-              </a>
-              )
-              : ("")}
-          {social.github !== "" ? (
+            >
+              <FaTwitter />
+            </a>
+          ) : (
+            ""
+          )}
+          {social?.github !== "" ? (
             <a
-            href={`https://github.com/${social.github}`}
-            target="_blank"
-            rel="noopener noreferrer"
+              href={`https://github.com/${social?.github}`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaGithub />
             </a>
           ) : (
             ""
-            )}
-          <a
-            href="#TODO"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
+          )}
+          <a href="#TODO" target="_blank" rel="noopener noreferrer">
             <Feedly />
           </a>
           <a href={`${siteUrl}/sitemap.xml`}>
@@ -132,11 +130,11 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className='lower-inner'>
+      <div className="lower-inner">
         <address>© {author}. All rights reserved.</address>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,10 +1,14 @@
-import styled from "styled-components"
-import { colors } from "../../style/GlobalStyle"
-import { rgba } from "polished"
+import styled from "styled-components";
+import { colors } from "../../style/GlobalStyle";
+import { rgba } from "polished";
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  focus: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   border: 1px solid rgba(255, 255, 255, 0.8);
-  background: ${props =>
+  background: ${(props) =>
     props.focus ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.1)"};
   border-radius: 100px;
   padding: 4px 10px 4px 12px;
@@ -20,7 +24,7 @@ export const Wrapper = styled.div`
     font-size: 0.88rem;
     padding-right: 10px;
     line-height: 1.8;
-    width: ${props => (props.focus ? "200px" : "100px")};
+    width: ${(props) => (props.focus ? "200px" : "100px")};
     transition: 0.3s ease;
     color: var(--text);
     letter-spacing: 0.03rem;
@@ -46,19 +50,19 @@ export const Wrapper = styled.div`
       }
     }
     border: 1px solid
-      ${props =>
+      ${(props) =>
         props.focus ? rgba(colors.primary, 0.6) : "rgba(65, 65, 65, 0.15)"};
     svg {
-      color: ${props =>
+      color: ${(props) =>
         props.focus ? rgba(colors.primary, 0.8) : "rgba(65, 65, 65, 0.3)"};
     }
   }
   @media screen and (max-width: 780px) {
     input {
-      width: ${props => (props.focus ? "120px" : "70px")};
+      width: ${(props) => (props.focus ? "120px" : "70px")};
     }
   }
-`
+`;
 
 export const ResultWrapper = styled.div`
   .result-inner {
@@ -133,4 +137,4 @@ export const ResultWrapper = styled.div`
       right: 2.5%;
     }
   }
-`
+`;

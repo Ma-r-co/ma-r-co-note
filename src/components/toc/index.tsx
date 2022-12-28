@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import { FaCaretDown } from "react-icons/fa"
+import React, { useState } from "react";
+import styled from "styled-components";
+import { FaCaretDown } from "react-icons/fa";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -82,10 +82,13 @@ const Wrapper = styled.div`
       padding: 20px 20px 10px 20px;
     }
   }
-`
+`;
 
-const Toc = props => {
-  const [open, switchOpen] = useState(false)
+interface TocProps {
+  data: string;
+}
+const Toc: React.FC<TocProps> = (props) => {
+  const [open, switchOpen] = useState(false);
   return (
     <Wrapper className="mokuji-wrapper">
       <div className="mokuji">
@@ -106,7 +109,7 @@ const Toc = props => {
         />
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Toc
+export default Toc;
