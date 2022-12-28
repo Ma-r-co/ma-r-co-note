@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import Wrapper from "./style";
 import { Link, PageProps } from "gatsby";
 import { FaCalendarAlt } from "react-icons/fa";
+import { LatestPost } from "../../types/Post";
 
 interface LatestProps {
-  latest: {
-    slug: string;
-    date: string;
-    title: string;
-  }[];
+  latest: LatestPost[];
 }
 
 export const Latest: React.FC<LatestProps> = (props) => {

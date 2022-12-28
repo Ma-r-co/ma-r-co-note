@@ -2,6 +2,7 @@ import path from "path";
 import { GatsbyNode } from "gatsby";
 import { extractRelatedPosts, defaultConfig } from "./gatsby-related-post";
 import { LatestPost, Post } from "./src/types/Post";
+import BlogPostTemplate from "./src/templates/blog-post/";
 
 interface CreatePagesQuery {
   allMarkdownRemark: {
@@ -14,8 +15,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions,
 }) => {
   const { createPage } = actions;
-  const blogPost = path.resolve(`./src/templates/blog-post/index.js`);
-  const tagPage = path.resolve(`./src/templates/tag-page/index.js`);
+  const blogPost = path.resolve(`./src/templates/blog-post/index.tsx`);
+  const tagPage = path.resolve(`./src/templates/tag-page/index.tsx`);
   const result = await graphql<CreatePagesQuery>(
     `
       {

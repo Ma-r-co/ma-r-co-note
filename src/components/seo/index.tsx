@@ -10,8 +10,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import { useSiteMetadata } from "../queries";
 
 interface SeoProps {
-  title?: string;
-  description?: string;
+  title?: string | null;
+  description?: string | null;
   pathname?: string;
   children?: React.ReactNode;
   type?: string;
