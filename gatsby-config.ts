@@ -25,7 +25,6 @@ const config: GatsbyConfig = {
     "gatsby-plugin-image",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -132,7 +131,6 @@ const config: GatsbyConfig = {
         checkSupportedExtensions: false,
       },
     },
-    `gatsby-plugin-sharp`,
     // {
     //   resolve: `gatsby-plugin-feed`,
     //   options: {

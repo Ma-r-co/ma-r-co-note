@@ -1,7 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
 
-export default function HTML(props) {
+interface HtmlProps {
+  htmlAttributes: Object;
+  headComponents: Array<React.ReactNode>;
+  bodyAttributes: Object;
+  preBodyComponents: Array<React.ReactNode>;
+  body: string;
+  postBodyComponents: Array<React.ReactNode>;
+}
+
+export const HTML: React.FC<HtmlProps> = (props) => {
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -13,17 +21,25 @@ export default function HTML(props) {
         />
         {props.headComponents}
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-336YP0XSBD"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-336YP0XSBD"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'G-336YP0XSBD');
-          `
-        }}/>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          `,
+          }}
+        />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
@@ -35,14 +51,7 @@ export default function HTML(props) {
         {props.postBodyComponents}
       </body>
     </html>
-  )
-}
+  );
+};
 
-HTML.propTypes = {
-  htmlAttributes: PropTypes.object,
-  headComponents: PropTypes.array,
-  bodyAttributes: PropTypes.object,
-  preBodyComponents: PropTypes.array,
-  body: PropTypes.string,
-  postBodyComponents: PropTypes.array,
-}
+export default HTML;
