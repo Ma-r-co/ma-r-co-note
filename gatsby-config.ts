@@ -203,6 +203,7 @@ const config: GatsbyConfig = {
     },
     `gatsby-plugin-twitter`,
     `gatsby-plugin-offline`,
+    "gatsby-plugin-netlify",
   ],
 };
 

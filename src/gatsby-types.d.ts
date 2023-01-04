@@ -2928,6 +2928,11 @@ type BackgroundImageQueryVariables = Exact<{ [key: string]: never; }>;
 
 type BackgroundImageQuery = { readonly backgroundImage: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
+type BlogIndexQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type BlogIndexQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null, readonly description: string | null } | null } | null, readonly avatar: { readonly childImageSharp: { readonly fixed: { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string } | null } | null } | null, readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly excerpt: string | null, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly description: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly slug: string | null } | null } }> } };
+
 type BlogPostBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
