@@ -30,7 +30,7 @@
     "gatsby-remark-smartypants": "^2.9.0",
     "gatsby-remark-toc": "^1.2.0",
     "gatsby-source-filesystem": "^2.10.0",
-    "gatsby-transformer-remark": "^2.15.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.11.0",
     "katex": "^0.12.0",
     "lodash": "^4.17.20",
